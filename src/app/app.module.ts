@@ -4,11 +4,13 @@ import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 import { AppComponent } from './app.component';
+import { VelhaComponent } from './velha/velha.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    VelhaComponent
   ],
   imports: [
     BrowserModule,

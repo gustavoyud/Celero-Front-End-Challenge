@@ -1,0 +1,87 @@
+<!-- Inicia Container -->
+<div class="container pt-3">
+    <div class="card">
+        <div class="card-header default-color lighten-1 white-text">
+            <i class="fa fa-cogs pr-2" aria-hidden="true"></i>  Configuração Inicial
+        </div>
+        <div class="card-body">
+            <h4 class="card-title"> Informe o Nome dos Jogadores </h4>
+              <!-- Começo da Linha -->
+              <div class="row">
+
+                  <!-- Recebe o Nome do Jogador1 -->
+                  <div class="col-3">
+                    <div class="md-form">
+                      <input mdbInputDirective type="text" name="text" [(ngModel)]="Jogador1" data-success=" " data-error=" " id="Player1" class="form-control">
+                      <label for="Player1" class="">Nome do Jogador*</label>
+                    </div>
+                  </div>
+              
+                  <!-- Recebe o Nome do Jogador2 -->
+                  <div class="col-3">
+                      <div class="md-form">
+                        <input mdbInputDirective type="text" name="text" [(ngModel)]="Jogador2" data-success=" " data-error=" " id="Player2" class="form-control">
+                        <label for="Player2" class="">Nome do Jogador*</label>
+                      </div>
+                  </div>
+                  <div class="col align-self-end">
+                      <button type="button" class="btn btn-primary waves-light" mdbWavesEffect>Iniciar</button>
+                  </div>
+
+                </div>
+                <!-- Final da Linha -->
+        </div>
+    </div>
+
+    <div class="row align-items-center">
+        <div class="col-5">
+            <div *ngIf="Jogador1" class="pt-5">
+                  <div class="card animated fadeInLeft">
+                      <div class="view hm-white-slight card-height celero waves-light" mdbWavesEffect>
+                            <a>
+                              <div class="mask"></div>
+                          </a>
+                      </div>
+                      <div class="card-body">
+                          <h4 class="card-title">Jogador: {{Jogador1}} </h4>
+                          <p class="card-text">Será representado pela cor   </p>
+                      </div>
+                  </div>
+              </div>
+        </div>
+      
+        <div class="col-2 text-center ">
+            <i *ngIf="Jogador1" class="fa fa-close fa-4x animated bounceIn text-center" aria-hidden="true"></i>
+        </div>
+        
+        <div class="col-5 pb-3">
+          <div *ngIf="Jogador2" class="pt-5">
+                  <div class="card animated fadeInUp">
+                      <div class="view hm-white-slight card-height primary-color waves-light" mdbWavesEffect>
+                          <a>
+                              <div class="mask"></div>
+                          </a>
+                      </div>
+                      <div class="card-body">
+                          <h4 class="card-title">Jogador: {{Jogador2}} </h4>
+                          <p class="card-text">Será representado pela cor   </p>
+                      </div>
+                  </div>
+            </div>
+        </div>
+    
+      
+
+
+    </div>
+
+
+
+
+</div>
+<!-- Finaliza O container -->
+
+
+
+
+

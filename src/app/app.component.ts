@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  //Verifica se o form foi validado
+  Validado: boolean = false;
+
 }

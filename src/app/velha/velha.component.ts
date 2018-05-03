@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-velha',
@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./velha.component.scss']
 })
 export class VelhaComponent implements OnInit {
-
-  Jogada: Number = 1;
+  //Recebe array de outro component
+  @Input() Jogadores: string[];
+  //Recebe a jogada
+  @Input() Jogada: Number;
+  //Cria array de controle das jogadas por usuario
   Player: Number[][] = [
     [0,0,0],
     [0,0,0],

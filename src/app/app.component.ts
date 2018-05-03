@@ -7,12 +7,23 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-
+  Jogada : number;
+  Jogadores: string[];
   //Verifica se o form foi validado
   Validado: boolean = false;
 
   recebeEvento(resposta: boolean)
   {
     this.Validado = resposta;
+  }
+
+  recebeJogada(Jogada)
+  {
+    this.Jogada = Jogada;
+  }
+
+  recebeNomes(nomes)
+  {
+    this.Jogadores = nomes;
   }
 }

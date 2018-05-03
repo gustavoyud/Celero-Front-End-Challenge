@@ -9,14 +9,23 @@ export class JogadoresComponent {
   //Recebe o nome dos Jogadores
   Jogador1: string = '';
   Jogador2: string = '';
+  
   //Recebe o Jogador que irá começar
   Jogada: any;
+  
   //Bolean que inicia o Jogo
   Init: boolean = false;
+  
   //Boolean de controle da visibilidade dos cards
   BooleanCard: boolean = true;
+  
   //Emissor de evento para o filho
-  @Output() Emiter = new EventEmitter<boolean>();
+  @Output() Emiter = new EventEmitter();
+  
+  //Passa os nomes dos Jogadores
+  @Output() Nomes = new EventEmitter<string[]>();
+  NomeArray: string[];
+
 
   //Metodo responsável por iniciar o Jogo
   Inicia()
@@ -34,10 +43,13 @@ export class JogadoresComponent {
       this.Emite();
     }
   }
-
+  //Passa os resultados para o componente filho
   Emite()
   {
+    this.NomeArray = [this.Jogador1, this.Jogador2];
     this.Emiter.emit(this.Init);
+    this.Emiter.emit(this.Jogada);
+    this.Nomes.emit(this.NomeArray);
   }
 
   constructor() { }

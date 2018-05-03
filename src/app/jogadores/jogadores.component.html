@@ -27,7 +27,7 @@
                         </div>
                     </div>
                     <div class="col align-self-end">
-                        <button [disabled]="!Jogador1 && !Jogador2" type="button" (click)="Inicia()" class="btn btn-info waves-light" mdbWavesEffect>Iniciar</button>
+                        <button [disabled]="!Jogador1 && !Jogador2" type="button" (click)="Inicia()" class="btn celero waves-light" mdbWavesEffect>Iniciar<i class="fa fa-gamepad pl-2" aria-hidden="true"></i></button>
                     </div>
   
                   </div>
@@ -42,19 +42,19 @@
                   <div class="card animated fadeInLeft">
                       <div class="view hm-white-slight card-height celero waves-light" mdbWavesEffect>
                             <a>
-                              <div class="mask"></div>
+                                <img src="https://cdn.pixabay.com/photo/2016/07/30/15/38/gaming-1557358_960_720.jpg" class="img-fluid" alt="">
+                              <div class="mask pattern-1"></div>
                           </a>
                       </div>
                       <div class="card-body">
-                          <h4 class="card-title">Jogador: {{Jogador1}} </h4>
-                          <p class="card-text">Será representado pela cor <span class="text-c">verde</span> </p>
+                          <h4 class="card-title">Jogador: <span class="text-c">{{Jogador1}}</span> </h4>
                       </div>
                   </div>
               </div>
         </div>
       
         <div class="col-2 text-center ">
-            <i *ngIf="Jogador1" class="fa fa-close fa-4x animated bounceIn text-center" aria-hidden="true"></i>
+            <i *ngIf="Jogador1" class="fa fa-gamepad fa-4x animated rotateIn text-center" aria-hidden="true"></i>
         </div>
 
         <div class="col-5">
@@ -62,34 +62,17 @@
                   <div class="card animated fadeInUp">
                       <div class="view hm-white-slight card-height primary-color waves-light" mdbWavesEffect>
                           <a>
-                              <div class="mask"></div>
+                            <img src="https://cdn.pixabay.com/photo/2016/07/30/15/38/gaming-1557358_960_720.jpg" class="img-fluid" alt="">
+                            <div class="mask pattern-1"></div>
                           </a>
                       </div>
                       <div class="card-body">
-                          <h4 class="card-title">Jogador: {{Jogador2}} </h4>
-                          <p class="card-text">Será representado pela cor <span class="blue-text"> azul</span>   </p>
+                          <h4 class="card-title">Jogador: <span class="text-c">{{Jogador2}} </span> </h4>
                       </div>
                   </div>
             </div>
         </div>
     </div>
-
-    <!-- Retorna quem irá iniciar o Jogo -->
-    <div class="col-5 pt-3">
-      <div *ngIf="Jogada == 1" class="alert alert-success animated fadeInDown" role="alert">
-        <p class="pt-3 card-title">{{Jogador1}} inicia com <i class="fa fa-close text-c" ></i> e  {{Jogador2}} inicia com <i class="fa fa-circle-thin blue-text" ></i> </p>                          
-      </div>
-    </div>
-
-    <div class="col-5 pt-3">
-        <div *ngIf="Jogada == 2" class="alert alert-success animated fadeInDown" role="alert">
-            <p *ngIf="Jogada == 2" class="pt-3 card-title">{{Jogador2}} inicia com <i class="fa fa-close blue-text" ></i> e  {{Jogador1}} inicia com <i class="fa fa-circle-thin text-c" ></i>  </p>          
-          </div>
-    </div>
-
-
-
-                                          
     
 </div>
 <!-- Finaliza O container -->

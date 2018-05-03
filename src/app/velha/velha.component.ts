@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-velha',
@@ -6,8 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./velha.component.scss']
 })
 export class VelhaComponent implements OnInit {
-
+  //Recebe Os Jogadores em ordem
+  Player1: string;
+  Player2: string;
+  //Recebe array de outro component
+  @Input() Jogadores: string[];
+  //Recebe a jogada
+  @Input() Joga: Number; 
   Jogada: Number = 1;
+  //Cria array de controle das jogadas por usuario
   Player: Number[][] = [
     [0,0,0],
     [0,0,0],
@@ -20,7 +27,6 @@ export class VelhaComponent implements OnInit {
     [false,false,false],
     [false,false,false]
   ];
-
 
   constructor() { }
 
@@ -35,19 +41,9 @@ export class VelhaComponent implements OnInit {
     this.ChangesTurn();
   }
 
-  //Retorna se as condições são verdadeiras e muda a classe  
-  getTrue(Linha: number, Coluna: number, Jogador: number)
-  {
-    if(this.Player[Linha][Coluna] == Jogador && this.Jogada == Jogador && this.TesteM[Linha][Coluna] == true)
-    {
-      return true;
-
-    }
-  }
-
+  //Muda o Turno dos jogadores
   ChangesTurn()
   {
-    //Muda o Turno dos jogadores
     if(this.Jogada == 1)
       this.Jogada = 2;
     else
@@ -56,6 +52,16 @@ export class VelhaComponent implements OnInit {
 
 
   ngOnInit() {
+    if(this.Joga == 1)
+    {
+      this.Player1 = this.Jogadores[0];
+      this.Player2 = this.Jogadores[1];
+    }
+    else
+    {
+      this.Player1 = this.Jogadores[1];
+      this.Player2 = this.Jogadores[0];
+    }
   }
 
 }

@@ -17,7 +17,7 @@ import { JogadoresComponent } from './jogadores/jogadores.component';
   imports: [
     BrowserModule,
     FormsModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

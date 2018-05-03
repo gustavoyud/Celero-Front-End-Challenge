@@ -1,8 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div *ngIf="!Validado">
-    <app-jogadores (Emit)="recebeEvento($event)"></app-jogadores>
+    <app-jogadores (Emiter)="recebeEvento($event)" (Emiter)="recebeJogada($event)" (Nomes)="recebeNomes($event)"></app-jogadores>
 </div>
 
 <div *ngIf="Validado">
-    <app-velha></app-velha>
+    <app-velha [Jogadores]="Jogadores" [Joga]="Jogada"></app-velha>
 </div>

@@ -11,4 +11,8 @@ export class AppComponent {
   //Verifica se o form foi validado
   Validado: boolean = false;
 
+  recebeEvento(resposta: boolean)
+  {
+    this.Validado = resposta;
+  }
 }

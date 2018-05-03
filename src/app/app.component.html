@@ -1,5 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<app-jogadores></app-jogadores>
+<div *ngIf="!Validado">
+    <app-jogadores (Emit)="recebeEvento($event)"></app-jogadores>
+</div>
 
 <div *ngIf="Validado">
     <app-velha></app-velha>

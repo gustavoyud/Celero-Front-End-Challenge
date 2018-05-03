@@ -29,8 +29,8 @@ export class JogadoresComponent {
   //Gera número Inteiro aleatório entre 1 e 2
   getRandom()
   {
-      var min = Math.ceil(1);
-      var max = Math.floor(2);
+      let min = Math.ceil(1);
+      let max = Math.floor(2);
       this.Jogada = Math.floor(Math.random() * (max - min + 1)) + min;
   }
 

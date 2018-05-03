@@ -7,22 +7,22 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class VelhaComponent implements OnInit {
   //Recebe Os Jogadores em ordem
-  Player1: string;
-  Player2: string;
+  private Player1: string;
+  private Player2: string;
   //Recebe array de outro component
   @Input() Jogadores: string[];
   //Recebe a jogada
   @Input() Joga: Number; 
-  Jogada: Number = 1;
+  private Jogada: Number = 1;
   //Cria array de controle das jogadas por usuario
-  Player: Number[][] = [
+  private Player: Number[][] = [
     [0,0,0],
     [0,0,0],
     [0,0,0]
   ];
 
   //Cria uma Matriz de Bool para controle das casas clicadas
-  TesteM: boolean[][] = [
+  private TesteM: boolean[][] = [
     [false,false,false],
     [false,false,false],
     [false,false,false]
@@ -31,7 +31,7 @@ export class VelhaComponent implements OnInit {
   constructor() { }
 
   //Seta o valor passado como verdade na Matriz de Bools
-  setTrue(Linha: number, Coluna: number)
+  public setTrue(Linha: number, Coluna: number)
   {
     this.TesteM[Linha][Coluna] = true;
     //Aloca a jogada na matriz de jogadores 
@@ -42,7 +42,7 @@ export class VelhaComponent implements OnInit {
   }
 
   //Muda o Turno dos jogadores
-  ChangesTurn()
+  public ChangesTurn()
   {
     if(this.Jogada == 1)
       this.Jogada = 2;

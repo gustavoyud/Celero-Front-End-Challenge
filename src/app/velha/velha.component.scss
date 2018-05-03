@@ -1,4 +1,5 @@
 $Cor: #29CC62;
+$Cor2: #4285F4;
 
 .velha{
     height: 170px; 
@@ -14,10 +15,23 @@ $Cor: #29CC62;
   text-align: center; 
 }
 
-.Player-1{
+i.Player-1{
     color: $Cor;
 }
-.Player-2
+i.Player-2
 {
-    color: #4285F4;
+    color: $Cor2;
+}
+div.Player-1
+{
+    background: $Cor;
+}
+div.Player-2
+{
+    background: $Cor2;
+}
+
+div .cores
+{
+    height: 50px;
 }

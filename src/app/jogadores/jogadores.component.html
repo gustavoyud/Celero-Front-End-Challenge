@@ -3,11 +3,11 @@
   <div class="col-8">
 
       <div class="card">
-          <div class="card-header default-color lighten-1 white-text">
+          <div class="card-header primary-color lighten-1 white-text">
               <i class="fa fa-cogs pr-2" aria-hidden="true"></i>  Configuração Inicial
           </div>
           <div class="card-body">
-              <h4 class="card-title teal-text"> Informe o Nome dos Jogadores </h4>
+              <h4 class="card-title blue-text"> Informe o Nome dos Jogadores </h4>
                 <!-- Começo da Linha -->
                 <div class="row">
   
@@ -28,8 +28,8 @@
                             <label for="Player2" class="">Nome do Jogador*</label>
                         </div>
                     </div>
-                    <div class="col align-self-end">
-                        <button [disabled]="!Jogador1 && !Jogador2" type="button" (click)="Inicia()" class="btn default-color waves-light" mdbWavesEffect>Iniciar<i class="fa fa-gamepad pl-2" aria-hidden="true"></i></button>
+                    <div class="col text-center pt-3">
+                        <button [disabled]="!Jogador2" type="button" (click)="Inicia()" class="btn primary-color waves-light" mdbWavesEffect>Iniciar<i class="fa fa-gamepad pl-2" aria-hidden="true"></i></button>
                     </div>
   
                   </div>

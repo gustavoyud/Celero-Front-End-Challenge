@@ -1,12 +1,16 @@
-$Cor: #29CC62;
+$Green: #29CC62;
+$Red: #e53935;
 
 .card-height{
-    height: 200px;
+    height: 30px;
 }
 .celero{
-    background: $Cor;
+    background: $Green;
 }
 .text-c
 {
-    color: $Cor;
+    color: $Green;
+}
+.versus{
+    color: $Red;
 }

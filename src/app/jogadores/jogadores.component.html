@@ -7,27 +7,29 @@
               <i class="fa fa-cogs pr-2" aria-hidden="true"></i>  Configuração Inicial
           </div>
           <div class="card-body">
-              <h4 class="card-title"> Informe o Nome dos Jogadores </h4>
+              <h4 class="card-title teal-text"> Informe o Nome dos Jogadores </h4>
                 <!-- Começo da Linha -->
                 <div class="row">
   
                     <!-- Recebe o Nome do Jogador1 -->
-                    <div class="col-4">
+                    <div class="col-6">
                       <div class="md-form">
-                        <input mdbInputDirective type="text" name="text" [(ngModel)]="Jogador1" data-success=" " data-error=" " id="Player1" class="form-control">
+                        <i class="fa fa-gamepad prefix"></i>
+                        <input mdbInputDirective type="text" name="text" (keyup)="getRandom()" [(ngModel)]="Jogador1" data-success=" " data-error=" " id="Player1" class="form-control">
                         <label for="Player1" class="">Nome do Jogador*</label>
                       </div>
                     </div>
                 
                     <!-- Recebe o Nome do Jogador2 -->
-                    <div class="col-4">
+                    <div class="col-6">
                         <div class="md-form">
-                          <input mdbInputDirective type="text" name="text" [(ngModel)]="Jogador2" data-success=" " data-error=" " id="Player2" class="form-control">
-                          <label for="Player2" class="">Nome do Jogador*</label>
+                            <i class="fa fa-gamepad prefix"></i>
+                            <input mdbInputDirective type="text" [disabled]="!Jogador1" name="text" [(ngModel)]="Jogador2" data-success=" " data-error=" " id="Player2" class="form-control">
+                            <label for="Player2" class="">Nome do Jogador*</label>
                         </div>
                     </div>
                     <div class="col align-self-end">
-                        <button [disabled]="!Jogador1 && !Jogador2" type="button" (click)="Inicia()" class="btn celero waves-light" mdbWavesEffect>Iniciar<i class="fa fa-gamepad pl-2" aria-hidden="true"></i></button>
+                        <button [disabled]="!Jogador1 && !Jogador2" type="button" (click)="Inicia()" class="btn default-color waves-light" mdbWavesEffect>Iniciar<i class="fa fa-gamepad pl-2" aria-hidden="true"></i></button>
                     </div>
   
                   </div>
@@ -36,44 +38,40 @@
       </div>
 
   </div>
-    <div *ngIf="BooleanCard" class="row align-items-center">
+  <!-- Card do Jogador 1 -->
+    <div class="row align-items-center">
         <div class="col-5">
             <div *ngIf="Jogador1" class="pt-5">
-                  <div class="card animated fadeInLeft">
-                      <div class="view hm-white-slight card-height celero waves-light" mdbWavesEffect>
-                            <a>
-                                <img src="https://cdn.pixabay.com/photo/2016/07/30/15/38/gaming-1557358_960_720.jpg" class="img-fluid" alt="">
-                              <div class="mask pattern-1"></div>
-                          </a>
-                      </div>
-                      <div class="card-body">
-                          <h4 class="card-title">Jogador: <span class="text-c">{{Jogador1}}</span> </h4>
-                          <p class="text-muted"><i class="fa fa-info-circle pr-2" aria-hidden="true"></i> O nome poderá ser mudado até o jogo ser iniciado</p>
-                      </div>
-                  </div>
-              </div>
-        </div>
-      
-        <div class="col-2 text-center ">
-            <i *ngIf="Jogador1" class="fa fa-gamepad fa-4x animated rotateIn text-center" aria-hidden="true"></i>
-        </div>
-
-        <div class="col-5">
-          <div *ngIf="Jogador2" class="pt-5">
-                  <div class="card animated fadeInUp">
-                      <div class="view hm-white-slight card-height primary-color waves-light" mdbWavesEffect>
-                          <a>
-                            <img src="https://cdn.pixabay.com/photo/2016/07/30/15/38/gaming-1557358_960_720.jpg" class="img-fluid" alt="">
-                            <div class="mask pattern-1"></div>
-                        </a>
-                    </div>
+                <div class="card animated fadeInLeft">
+                    <div class="view hm-white-slight card-height waves-light" [ngClass]="{'celero': Jogada == 1 , 'primary-color': Jogada == 2 }" mdbWavesEffect></div>
                     <div class="card-body">
-                        <h4 class="card-title">Jogador: <span class="text-c">{{Jogador2}} </span> </h4>
-                        <p class="text-muted"><i class="fa fa-info-circle pr-2" aria-hidden="true"></i> O nome poderá ser mudado até o jogo ser iniciado</p>                        
+                        <h4 class="card-title">Jogador: <span class="text-c">{{Jogador1}}</span> </h4>
+                        <p>O jogador será representado por <i class="fa" [ngClass]="{'text-c': Jogada == 1, 'fa-close': Jogada == 1, 'fa-circle-thin': Jogada == 2, 'blue-text': Jogada == 2 }" aria-hidden="true"></i></p>
+                        <small class="text-muted"><i class="fa fa-info-circle pr-1" aria-hidden="true"></i> O nome poderá ser alterado até o jogo ser iniciado   </small>
                     </div>
-                  </div>
+                </div>
             </div>
         </div>
+
+      <!-- Vs -->
+        <div class="col-2 text-center ">
+            <i *ngIf="Jogador2" class="fa fa-close fa-4x animated versus rotateIn text-center" aria-hidden="true"></i>
+        </div>
+        
+    <!-- Card do jogador 2 -->
+        <div class="col-5">
+            <div *ngIf="Jogador2" class="pt-5">
+                <div class="card animated fadeInUp">
+                    <div class="view hm-white-slight card-height waves-light" [ngClass]="{'celero' : Jogada == 2, 'primary-color': Jogada == 1}" mdbWavesEffect></div>
+                    <div class="card-body">
+                        <h4 class="card-title">Jogador: <span class="text-c">{{Jogador2}}</span> </h4>
+                        <p>O jogador será representado por <i class="fa" [ngClass]="{'text-c': Jogada == 2, 'fa-close': Jogada == 2, 'fa-circle-thin': Jogada == 1, 'blue-text': Jogada == 1 }" aria-hidden="true"></i></p>
+                        <small class="text-muted"><i class="fa fa-info-circle pr-1" aria-hidden="true"></i> O nome poderá ser alterado até o jogo ser iniciado </small> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Final da Linha -->
     </div>
     
 </div>

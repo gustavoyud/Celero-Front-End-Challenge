@@ -25,18 +25,21 @@ export class JogadoresComponent {
   //Passa os nomes dos Jogadores
   @Output() Nomes = new EventEmitter<string[]>();
   NomeArray: string[];
-
+  
+  //Gera número Inteiro aleatório entre 1 e 2
+  getRandom()
+  {
+      var min = Math.ceil(1);
+      var max = Math.floor(2);
+      this.Jogada = Math.floor(Math.random() * (max - min + 1)) + min;
+  }
 
   //Metodo responsável por iniciar o Jogo
   Inicia()
   {
     if(this.Jogador1 && this.Jogador2)
     {
-      //Gera número Inteiro aleatório entre 1 e 2
-      var min = Math.ceil(1);
-      var max = Math.floor(2);
-      this.Jogada = Math.floor(Math.random() * (max - min + 1)) + min;
-    
+      this.getRandom();
       //Define o status do Jogo como iniciado
       this.Init = true;
       this.BooleanCard = false;

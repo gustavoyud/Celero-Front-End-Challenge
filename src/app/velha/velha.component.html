@@ -55,20 +55,27 @@
     </div>
 
     <div class="col-3">
-      <!-- Retorna quem irá iniciar o Jogo -->
+        <div class="card success-color text-center z-depth-2">
+            <div class="card-body">
+                <p class="white-text mb-0">Jogador 1 : {{Player1}}</p>
+            </div>
+        </div>
 
-      <!-- Caso Jogador1 -->
-      <div class="col-12 pt-3">
-        <div *ngIf="Jogada == 1" class="alert alert-success animated fadeInDown" role="alert">
-          <p class="pt-3 card-title">{{Jogadores[0]}} inicia com <i class="fa fa-close text-c" ></i> e  {{Jogadores[1]}} inicia com <i class="fa fa-circle-thin blue-text" ></i> </p>                          
+
+        <div class="card info-color text-center z-depth-2 ">
+            <div class="card-body">
+                <p class="white-text mb-0">Jogador 2: {{Player2}}                  
+                </p>
+            </div>
         </div>
-      </div>
-      <!-- Caso Jogador2 -->
-      <div class="col-12 pt-3">
-        <div *ngIf="Jogada == 2" class="alert alert-success animated fadeInDown" role="alert">
-          <p class="pt-3 card-title">{{Jogadores[1]}} inicia com <i class="fa fa-close blue-text" ></i> e  {{Jogadores[0]}} inicia com <i class="fa fa-circle-thin text-c" ></i>  </p>          
-        </div>
-      </div>
+
+
+        
+               
+
+
+
+
     </div>
 
   </div>

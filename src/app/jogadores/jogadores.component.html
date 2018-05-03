@@ -1,18 +1,18 @@
 <!-- Inicia Container -->
 <div class="container pt-3">
-  <div class="col-8">
+  <div class="col-xl-12 col-lg-12 col-md-12 col-12">
 
       <div class="card">
           <div class="card-header primary-color lighten-1 white-text">
               <i class="fa fa-cogs pr-2" aria-hidden="true"></i>  Configuração Inicial
           </div>
           <div class="card-body">
-              <h4 class="card-title blue-text"> Informe o Nome dos Jogadores </h4>
+              <h4 class="h4-responsive card-title blue-text"> Informe o Nome dos Jogadores </h4>
                 <!-- Começo da Linha -->
                 <div class="row">
   
                     <!-- Recebe o Nome do Jogador1 -->
-                    <div class="col-6">
+                    <div class="col-xl-6 col-md-6 col-12">
                       <div class="md-form">
                         <i class="fa fa-gamepad prefix"></i>
                         <input mdbInputDirective type="text" name="text" (keyup)="getRandom()" [(ngModel)]="Jogador1" data-success=" " data-error=" " id="Player1" class="form-control">
@@ -21,7 +21,7 @@
                     </div>
                 
                     <!-- Recebe o Nome do Jogador2 -->
-                    <div class="col-6">
+                    <div class="col-xl-6 col-md-6 col-12">
                         <div class="md-form">
                             <i class="fa fa-gamepad prefix"></i>
                             <input mdbInputDirective type="text" [disabled]="!Jogador1" name="text" [(ngModel)]="Jogador2" data-success=" " data-error=" " id="Player2" class="form-control">
@@ -40,7 +40,7 @@
   </div>
   <!-- Card do Jogador 1 -->
     <div class="row align-items-center">
-        <div class="col-5">
+        <div class="col-xl-5 col-md-5 col-12">
             <div *ngIf="Jogador1" class="pt-5">
                 <div class="card animated fadeInLeft">
                     <div class="view hm-white-slight card-height waves-light" [ngClass]="{'celero': Jogada == 1 , 'primary-color': Jogada == 2 }" mdbWavesEffect></div>
@@ -54,12 +54,12 @@
         </div>
 
       <!-- Vs -->
-        <div class="col-2 text-center ">
+        <div class="col-2 col-md-2 col-12 pt-5 text-center ">
             <i *ngIf="Jogador2" class="fa fa-close fa-4x animated versus rotateIn text-center" aria-hidden="true"></i>
         </div>
         
     <!-- Card do jogador 2 -->
-        <div class="col-5">
+        <div class="col-xl-5 col-md-5 col-12">
             <div *ngIf="Jogador2" class="pt-5">
                 <div class="card animated fadeInUp">
                     <div class="view hm-white-slight card-height waves-light" [ngClass]="{'celero' : Jogada == 2, 'primary-color': Jogada == 1}" mdbWavesEffect></div>

@@ -19,7 +19,7 @@ export class VelhaComponent implements OnInit {
   //Recebe a jogada
   @Input() Joga: Number; 
   public Jogada: Number = 1;
-  
+
   //Cria array de controle das jogadas por usuario
   public Player: Number[][] = [
     [0,0,0],
@@ -41,11 +41,6 @@ export class VelhaComponent implements OnInit {
     //Aloca a jogada na matriz de jogadores 
     if(this.Player[Linha][Coluna] == 0)
       this.Player[Linha][Coluna] = this.Jogada;
-    
-    if(this.Jogada == 1)
-      this.P1++;
-    else
-      this.P2++;
 
     this.ChangesTurn();
   }

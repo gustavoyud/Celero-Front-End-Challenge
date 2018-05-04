@@ -1,10 +1,9 @@
 <div class="container pt-5 pb-5 animated fadeInUp">
   <div class="row">
-    <div class="col-12 col-sm-12 col-lg-6 col-xl-6 col-md-9 col-sm-12">
-
+    <div class="col-12 col-sm-12 col-lg-7 col-xl-6 col-md-8 col-sm-12">
+       <span class="placar "> <i class="fa animated flipInY" [ngClass]="{'fa-close Player-1': Jogada == 1,  'fa-circle-thin Player-2': Jogada == 2}"  aria-hidden="true"></i>  Joga </span>
   <!-- Primeira Linha -->
   <div class="row">
-
       <div class="col-4  border-left-0 border-top-0 velha" (click)="setTrue(0,0)">
         <span><i [ngClass]="{'fa-close': Player[0][0] == 1,  'fa-circle-thin': Player[0][0] == 2,'bounceIn': TesteM[0][0], 'Player-1': Player[0][0] == 1, 'Player-2': Player[0][0] == 2}" class="fa fa-4x animated" aria-hidden="true"></i></span>
       </div>
@@ -53,22 +52,22 @@
     </div>
     <!-- Terceira linha -->
     </div>
-    
-    <div class="col-12 col-sm-12 col-xl-6 col-md-3">
+    <div class="row align-items-center">
+        <div class="col-12 col-sm-12 col-lg-5 col-xl-6 col-md-4">
 
-      <div class="col-12 pt-2 animated wow fadeInLeft" data-wow-delay="0.9s">
-        <div class="chip Player-1 white-text z-depth-1">{{Player1}}</div>
-        <span class="placar pl-2">{{P1}}</span>
-      </div>
-      
-      <div class="col-12 pt-2 animated wow fadeInLeft" data-wow-delay="0.9s">
-        <div class="chip Player-2 white-text z-depth-1-half">{{Player2}}</div>
-        <span class="placar pl-2">{{P2}}</span>
-      </div>
-      
-
+            <div class="col-12 align-self-center pt-2 animated wow fadeInLeft" data-wow-delay="0.9s">
+              <div class="chip Player-1 white-text z-depth-1">{{Player1}}</div>
+              <span class="placar pl-2">{{P1}}</span>
+            </div>
+            
+            <div class="col-12 pt-2 animated wow fadeInLeft" data-wow-delay="0.9s">
+              <div class="chip Player-2 white-text z-depth-1-half">{{Player2}}</div>
+              <span class="placar pl-2">{{P2}}</span>
+            </div>
+          </div>
 
     </div>
+
 
 
 

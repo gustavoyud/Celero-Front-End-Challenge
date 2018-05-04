@@ -49,6 +49,8 @@ export class VelhaComponent implements OnInit {
   //Seta o valor passado como verdade na Matriz de Bools
   public SetTrue(Linha: number, Coluna: number)
   {
+    console.log(this.player)
+
     //Se a matriz Já não estiver alocada
     if(this.mainMatrix[Linha][Coluna] == false)
     {
@@ -68,14 +70,14 @@ export class VelhaComponent implements OnInit {
   {
     //Define as variaveis para controle
     let velha = 0;
-    let p = 0;
-    let s = 0;
-    let t = 0;
-    let p1 = 0;
-    let s1 = 0;
-    let t1 = 0;
-    let d = 0;
-    let d2 = 0;
+    let firstLineVerifier = 0;
+    let secondLineVerifier = 0;
+    let thirdLineVerifier = 0;
+    let firstCollumnVerifier = 0;
+    let secondCollumnVerifier = 0;
+    let thirdCollumnVerifier = 0;
+    let diagonalVerifier = 0;
+    let leftDiagonalVerifier = 0;
 
     //Verifica se 'deu velha'
     for(let i = 0; i < 3; i++)
@@ -86,45 +88,49 @@ export class VelhaComponent implements OnInit {
     //Realiza a verificação vertical
     for(let i = 0; i < 3; i++)
     {
+      //Verifica a primeira coluna 
       if(this.player[i][0] == jogador)
-        p++;
-      else if(this.player[i][1] == jogador)
-        s++;
-      else if(this.player[i][2] == jogador)
-        t++;
+        firstCollumnVerifier++;
+      //Verifica a segunda coluna
+      if(this.player[i][1] == jogador)
+        secondCollumnVerifier++;
+      //verifica a terceira coluna
+      if(this.player[i][2] == jogador)
+        thirdCollumnVerifier++;
     }
 
     //Realiza a verificação vertical
     for(let i = 0; i < 3; i++)
     {
+      //Verifica a primeira linha
       if(this.player[0][i] == jogador)
-        p1++;
-      else if(this.player[1][i] == jogador)
-        s1++;
-      else if(this.player[2][i] == jogador)
-        t1++;
+        firstLineVerifier++;
+      //verifica a segunda linha
+      if(this.player[1][i] == jogador)
+        secondLineVerifier++;
+      //verifica a terceira linha
+      if(this.player[2][i] == jogador)
+        thirdLineVerifier++;
     }
-
     //Variavel auxiliar
-    let dv = 2;
+    let leftDiagonal = 2;
     //Realiza a verificação Diagonal    
     for (let i = 0; i <3; i++)
     {
       if(this.player[i][i] == jogador)
-        d++;
+        diagonalVerifier++;
       
-      if(this.player[dv][i] == jogador)
-        d2++;
+      if(this.player[leftDiagonal][i] == jogador)
+        leftDiagonalVerifier++;
         
-      dv--;
+      leftDiagonal--;
     }
 
     //Se algum dos valores tiver marcado 3 casas o jogo termina
-    if(p == 3 || s == 3 || t == 3 || p1 == 3 || s1 == 3 || t1 == 3 || d == 3 || d2 == 3)
+    if(firstLineVerifier == 3 || secondLineVerifier == 3 || thirdLineVerifier == 3 || firstCollumnVerifier == 3 || secondCollumnVerifier == 3 || thirdCollumnVerifier == 3 || diagonalVerifier == 3 || leftDiagonalVerifier == 3)
       this.Finish(jogador,false);
     else if(velha == 9)
       this.Finish(jogador,true);
-
   }
 
   private Finish(Jogador: Number,Velha: boolean)

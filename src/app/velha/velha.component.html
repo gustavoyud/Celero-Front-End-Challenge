@@ -55,21 +55,40 @@
       <!-- !Terceira linha -->
     </div>
 
+    <!-- Resete -->
     <div *ngIf="reset" class="col-12 col-sm-12 col-lg-7 col-xl-6 col-md-8 col-sm-12">
-      <div class="row">
-        <span class="placar wow fadeInLeft" data-wow-delay="0.9s"> {{status}}</span>       
-        <i class="fa fa-repeat fa-4x placar white-text animated pl-2" (click)="reset = !reset" (mouseover)="animate = !animate" [ngClass]="{'rotateIn': animate}" aria-hidden="true"></i>    
+      <div class="row text-center">
+        <!-- Resposta -->
+        <div class="col-12">
+            <span class="placar wow fadeInLeft text-center" data-wow-delay="0.9s"> {{status}}</span>       
+        </div>
+        <!-- Placar do Jogador 1 -->
+        <div class="col-6 align-self-center pt-2 animated wow fadeInLeft" data-wow-delay="0.9s">
+          <div class="chip Player-1 white-text z-depth-1">{{player1}}</div>
+          <span class="placar">{{scoreboardPlayer1}}</span>
+        </div>
+        <!-- Placar do Jogador 2 -->    
+        <div class="col-6 pt-2 animated wow fadeInLeft" data-wow-delay="0.9s">
+          <div class="chip Player-2 white-text z-depth-1-half">{{player2}}</div>
+          <span class="placar">{{scoreboardPlayer2}}</span>
+        </div>
+
+        <!-- Botão de reinicio -->
+        <div class="col-12 text-center">
+          <i class="fa fa-repeat fa-4x placar white-text animated pl-2" (click)="reset = !reset" (mouseover)="animate = !animate" [ngClass]="{'rotateIn': animate}" aria-hidden="true"></i>    
+        </div>
       </div>
     </div>
+    <!-- !Resete -->
 
     <!-- Controle da pontuação -->
-    <div class="row align-items-center">
-      <div class="col-12 col-sm-12 col-lg-5 col-xl-6 col-md-4">
+    <div *ngIf="!reset" class="row align-items-center">
+      <div class="col-12">
 
         <!-- Nome dos Jogadores -->
         <div class="col-12 align-self-center pt-2 animated wow fadeInLeft" data-wow-delay="0.9s">
-          <div class="chip Player-1 white-text z-depth-1">{{player1}}</div>
-          <span class="placar pl-2">{{scoreboardPlayer1}}</span>
+          <div class="chip Player-1 white-text z-depth-1"> {{player1}}</div>
+          <span class="placar pl-2 ">{{scoreboardPlayer1}} </span>                    
         </div>
             
         <div class="col-12 pt-2 animated wow fadeInLeft" data-wow-delay="0.9s">
@@ -81,20 +100,6 @@
       </div>
     </div>
     <!-- !Controle da pontuação -->
-
-
-
-
-
-
-
-        
-               
-
-
-
-
-    </div>
-
   </div>
+</div>
 

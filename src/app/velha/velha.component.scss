@@ -1,11 +1,12 @@
 $Cor: #29CC62;
 $Cor2: #4285F4;
+$Cor3: #00695c;
 
 .velha{
     height: 170px; 
     border: 7px solid ;
     display: table; 
-    border-color: #00695c;
+    border-color: #fff;
 }
 
 .velha span 
@@ -52,4 +53,33 @@ div .cores
     height: 50px;
     width: 50px;
     border-radius: 50%;
+}
+
+
+@media only screen and (max-width: 435px) {
+    .velha{
+        height: 110px;
+        border: 7px solid ;
+        display: table; 
+        border-color: #fff;
+    }
+    
+}
+
+@media only screen and (max-width: 500px) {
+    .velha{
+        height: 130px;
+        border: 7px solid ;
+        display: table; 
+        border-color: #fff;
+    }
+    
+}
+
+span.placar{
+    font-family:  'Roboto', sans-serif;
+	font-weight: 100;
+    line-height: 35px;
+    font-size: 40px;
+    color: #fff;
 }

@@ -1,6 +1,6 @@
 <div class="container pt-5 pb-5 animated fadeInUp">
   <div class="row">
-    <div class="col-6">
+    <div class="col-12 col-sm-12 col-lg-6 col-xl-6 col-md-9 col-sm-12">
 
   <!-- Primeira Linha -->
   <div class="row">
@@ -53,15 +53,24 @@
     </div>
     <!-- Terceira linha -->
     </div>
-    <div class="col-3 animated wow fadeInLeft" data-wow-delay="0.9s">
-      <div class="chip Player-1 white-text z-depth-1">{{Player1}}</div>
+    
+    <div class="col-12 col-sm-12 col-xl-6 col-md-3">
+
+      <div class="col-12 pt-2 animated wow fadeInLeft" data-wow-delay="0.9s">
+        <div class="chip Player-1 white-text z-depth-1">{{Player1}}</div>
+        <span class="placar pl-2">{{P1}}</span>
+      </div>
+      
+      <div class="col-12 pt-2 animated wow fadeInLeft" data-wow-delay="0.9s">
+        <div class="chip Player-2 white-text z-depth-1-half">{{Player2}}</div>
+        <span class="placar pl-2">{{P2}}</span>
+      </div>
+      
+
+
     </div>
 
-    <div class="col-3 animated wow fadeInLeft" data-wow-delay="0.9s">
-      <div class="chip Player-2 white-text z-depth-1-half">
-        {{Player2}}
-      </div>
-    </div>
+
 
 
 

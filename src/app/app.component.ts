@@ -7,10 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-  private Jogada : number;
-  private Jogadores: string[];
+  public Jogada : number;
+  public Jogadores: string[];
   //Verifica se o form foi validado
-  private Validado: boolean = false;
+  public Validado: boolean = false;
 
   private recebeEvento(resposta: boolean)
   {

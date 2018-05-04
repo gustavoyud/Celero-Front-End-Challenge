@@ -1,8 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div *ngIf="!Validado">
-    <app-jogadores (Emiter)="recebeEvento($event)" (Emiter)="recebeJogada($event)" (Nomes)="recebeNomes($event)"></app-jogadores>
+<div *ngIf="!validated">
+    <app-jogadores (emitter)="EventReceiver($event)" (emitter)="PlayReceiver($event)" (emitterNames)="NameReceiver($event)"></app-jogadores>
 </div>
 
-<div *ngIf="Validado">
-    <app-velha [Jogadores]="Jogadores" [Joga]="Jogada"></app-velha>
+<div *ngIf="validated">
+    <app-velha [players]="players" [initialPlayer]="initialPlayer"></app-velha>
 </div>

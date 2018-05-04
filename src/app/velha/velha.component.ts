@@ -7,62 +7,64 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class VelhaComponent implements OnInit {
   //Recebe Os Jogadores em ordem
-  public Player1: string;
-  public Player2: string;
+  public player1: string;
+  public player2: string;
 
-  public Status: string;
+  //Controla o que será exibido como resposta
+  public status: string;
+  
   //Contador de Pontos
-  public P1: number = 0;
-  public P2: number = 0;
-  //Boolean responsável por animações
-  public Anima: boolean = false;
+  public scoreboardPlayer1: number = 0;
+  public scoreboardPlayer2: number = 0;
 
-  //Bolean responsável por reiniciar o Jogo
-  public Reinicia: boolean = false;
+  //variável responsável pelas animações
+  public animate: boolean = false;
+
+  //variável responsável por reiniciar o Jogo
+  public reset: boolean = false;
 
   //Recebe array de outro component
-  @Input() Jogadores: string[];
+  @Input() public players: string[];
 
-  //Recebe o Jogador que inicia do componente filho
-  @Input() Joga: Number; 
+  //Recebe o Jogador que inicia 
+  @Input() public initialPlayer: Number; 
 
-  //Controla de qual jogador é a Jogada
-  public Jogada: Number = 1;
+  //Controla de qual jogador é a vez
+  private turn: Number = 1;
 
   //Cria array de controle das jogadas por usuario
-  public Player: Number[][] = [
+  public player: Number[][] = [
     [0,0,0],
     [0,0,0],
     [0,0,0]
   ];
 
   //Cria uma Matriz de Bool para controle das casas clicadas
-  public MatrizP: boolean[][] = [
+  public mainMatrix: boolean[][] = [
     [false,false,false],
     [false,false,false],
     [false,false,false]
   ];
 
   //Seta o valor passado como verdade na Matriz de Bools
-  public setTrue(Linha: number, Coluna: number)
+  public SetTrue(Linha: number, Coluna: number)
   {
-    
     //Se a matriz Já não estiver alocada
-    if(this.MatrizP[Linha][Coluna] == false)
+    if(this.mainMatrix[Linha][Coluna] == false)
     {
-      this.MatrizP[Linha][Coluna] = true;
+      this.mainMatrix[Linha][Coluna] = true;
       //Aloca a jogada na matriz de jogadores 
-      if(this.Player[Linha][Coluna] == 0)
-        this.Player[Linha][Coluna] = this.Jogada;
+      if(this.player[Linha][Coluna] == 0)
+        this.player[Linha][Coluna] = this.turn;
 
-      this.VerificaCasas(Linha,Coluna,this.Jogada);
+      this.LogicalVerify(this.turn);
       //Troca o turno
-      this.ChangesTurn();
+      this.NextTurn();
     }
   }
 
   //Método responsável pela lógica do jogo
-  private VerificaCasas(Linha: number, Coluna: number, Jogador: Number)
+  private LogicalVerify(jogador: Number)
   {
     //Define as variaveis para controle
     let velha = 0;
@@ -78,28 +80,28 @@ export class VelhaComponent implements OnInit {
     //Verifica se 'deu velha'
     for(let i = 0; i < 3; i++)
       for(let j = 0; j < 3; j++)  
-        if(this.Player[i][j] > 0)
+        if(this.player[i][j] > 0)
           velha++;
 
     //Realiza a verificação vertical
     for(let i = 0; i < 3; i++)
     {
-      if(this.Player[i][0] == Jogador)
+      if(this.player[i][0] == jogador)
         p++;
-      else if(this.Player[i][1] == Jogador)
+      else if(this.player[i][1] == jogador)
         s++;
-      else if(this.Player[i][2] == Jogador)
+      else if(this.player[i][2] == jogador)
         t++;
     }
 
     //Realiza a verificação vertical
     for(let i = 0; i < 3; i++)
     {
-      if(this.Player[0][i] == Jogador)
+      if(this.player[0][i] == jogador)
         p1++;
-      else if(this.Player[1][i] == Jogador)
+      else if(this.player[1][i] == jogador)
         s1++;
-      else if(this.Player[2][i] == Jogador)
+      else if(this.player[2][i] == jogador)
         t1++;
     }
 
@@ -108,10 +110,10 @@ export class VelhaComponent implements OnInit {
     //Realiza a verificação Diagonal    
     for (let i = 0; i <3; i++)
     {
-      if(this.Player[i][i] == Jogador)
+      if(this.player[i][i] == jogador)
         d++;
       
-      if(this.Player[dv][i] == Jogador)
+      if(this.player[dv][i] == jogador)
         d2++;
         
       dv--;
@@ -119,64 +121,64 @@ export class VelhaComponent implements OnInit {
 
     //Se algum dos valores tiver marcado 3 casas o jogo termina
     if(p == 3 || s == 3 || t == 3 || p1 == 3 || s1 == 3 || t1 == 3 || d == 3 || d2 == 3)
-      this.Termina(Jogador,false);
+      this.Finish(jogador,false);
     else if(velha == 9)
-      this.Termina(Jogador,true);
+      this.Finish(jogador,true);
 
   }
 
-  public Termina(Jogador: Number,Velha: boolean)
+  private Finish(Jogador: Number,Velha: boolean)
   {
-    this.Reinicia = true;
+    this.reset= true;
 
     //Zera as matrizes de boolean
     for(let i = 0; i < 3; i ++)
     {
       for(let j = 0; j < 3; j++)
       {
-        if(this.MatrizP[i][j] == true)
-          this.MatrizP[i][j] = false;
+        if(this.mainMatrix[i][j] == true)
+          this.mainMatrix[i][j] = false;
         
-        if(this.Player[i][j] > 0)
-          this.Player[i][j] = 0;
+        if(this.player[i][j] > 0)
+          this.player[i][j] = 0;
       }
     }
      
     
     if(Jogador == 1 && Velha == false)
     {
-      this.P1++;
-      this.Status = this.Player1+" venceu a rodada!";
+      this.scoreboardPlayer1++;
+      this.status = this.player1+" venceu a rodada!";
     }
     else if(Jogador == 2 && Velha == false)
     {
-      this.P2++;
-      this.Status = this.Player2+" venceu a rodada!";
+      this.scoreboardPlayer2++;
+      this.status = this.player2+" venceu a rodada!";
     }
     else if(Velha)
-      this.Status = "O Jogo deu velha";
+      this.status = "O Jogo deu velha";
   }
   //Muda o Turno dos jogadores
-  public ChangesTurn()
+  private NextTurn()
   {
-    if(this.Jogada == 1)
-      this.Jogada = 2;
+    if(this.turn == 1)
+      this.turn = 2;
     else
-      this.Jogada = 1;
+      this.turn = 1;
   }
 
 
   ngOnInit() {
     //Ordena os Jogadores
-    if(this.Joga == 1)
+    if(this.initialPlayer == 1)
     {
-      this.Player1 = this.Jogadores[0];
-      this.Player2 = this.Jogadores[1];
+      this.player1 = this.players[0];
+      this.player2 = this.players[1];
     }
     else
     {
-      this.Player1 = this.Jogadores[1];
-      this.Player2 = this.Jogadores[0];
+      this.player1 = this.players[1];
+      this.player2 = this.players[0];
     }
   }
 

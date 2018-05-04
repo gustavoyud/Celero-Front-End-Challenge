@@ -6,51 +6,50 @@ import { Component,Output, EventEmitter} from '@angular/core';
   styleUrls: ['./jogadores.component.scss']
 })
 export class JogadoresComponent {
-  //Recebe o nome dos Jogadores
-  public Jogador1: string = '';
-  public Jogador2: string = '';
+  //caso seja verdadeira o tabuleiro será mostrado
+  private initiate: boolean = false;
+  //Recebe o nome dos Jogadores e aloca em um array
+  private playerNames: string[];
   
+  //Recebe o nome dos pelo input da página
+  public player1: string = '';
+  public player2: string = '';
   //Recebe o Jogador que irá começar
-  public Jogada: any = 0;
+  public initialPlayer: any = 0;
+  //Emissor de evento para o componente pai
+  @Output() public emitter = new EventEmitter();
+  //Emissor do Nome dos jogadores
+  @Output() public emitterNames = new EventEmitter<string[]>();
   
-  //Bolean que inicia o Jogo
-  private Init: boolean = false;
-  
-  //Emissor de evento para o filho
-  @Output() Emiter = new EventEmitter();
-  
-  //Emissor de Nomes e array que será passado
-  @Output() Nomes = new EventEmitter<string[]>();
-  private NomeArray: string[];
-  
-  //Gera número Inteiro aleatório entre 1 e 2 que decide quem irá iniciar a partida
-  public getRandom()
-  {   
-    if(this.Jogada == 0)
+  //Metodo responsável por iniciar o Jogo
+  public Initiate()
+  {
+    if(this.player1 && this.player2)
     {
-      let min = Math.ceil(1);
-      let max = Math.floor(2);
-      this.Jogada = Math.floor(Math.random() * (max - min + 1)) + min;
+      //Define o status do Jogo como iniciado
+      this.initiate = true;
+      this.Emit();
     }
   }
 
-  //Metodo responsável por iniciar o Jogo
-  private Inicia()
-  {
-    if(this.Jogador1 && this.Jogador2)
+  //Gera número Inteiro aleatório entre 1 e 2 que decide quem irá iniciar a partida
+  public GetRandom()
+  {   
+    if(this.initialPlayer == 0)
     {
-      //Define o status do Jogo como iniciado
-      this.Init = true;
-      this.Emite();
+      let min = Math.ceil(1);
+      let max = Math.floor(2);
+      this.initialPlayer = Math.floor(Math.random() * (max - min + 1)) + min;
     }
   }
-  //Passa os resultados para o componente filho
-  private Emite()
+
+  //Passa os resultados para o componente pai
+  private Emit()
   {
-    this.NomeArray = [this.Jogador1, this.Jogador2];
-    this.Emiter.emit(this.Init);
-    this.Emiter.emit(this.Jogada);
-    this.Nomes.emit(this.NomeArray);
+    this.playerNames = [this.player1, this.player2];
+    this.emitter.emit(this.initiate);
+    this.emitter.emit(this.initialPlayer);
+    this.emitterNames.emit(this.playerNames);
   }
 
 

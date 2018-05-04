@@ -1,72 +1,86 @@
 <div class="container pt-5 pb-5 animated fadeInUp">
   <div class="row">
-    <div class="col-12 col-sm-12 col-lg-7 col-xl-6 col-md-8 col-sm-12">
-       <span class="placar "> <i class="fa animated flipInY" [ngClass]="{'fa-close Player-1': Jogada == 1,  'fa-circle-thin Player-2': Jogada == 2}"  aria-hidden="true"></i>  Joga </span>
-  <!-- Primeira Linha -->
-  <div class="row">
-      <div class="col-4  border-left-0 border-top-0 velha" (click)="setTrue(0,0)">
-        <span><i [ngClass]="{'fa-close': Player[0][0] == 1,  'fa-circle-thin': Player[0][0] == 2,'bounceIn': TesteM[0][0], 'Player-1': Player[0][0] == 1, 'Player-2': Player[0][0] == 2}" class="fa fa-4x animated" aria-hidden="true"></i></span>
+    <!-- Inicio do Tabuleiro -->
+    <div *ngIf="!Reinicia" class="col-12 col-sm-12 col-lg-7 col-xl-6 col-md-8 col-sm-12">
+      <span class="placar"> <i class="fa animated flipInY" [ngClass]="{'fa-close Player-1': Jogada == 1,  'fa-circle-thin Player-2': Jogada == 2}"  aria-hidden="true"></i>  Joga </span>
+      
+      <!-- Primeira Linha -->
+      <div class="row">
+        <div class="col-4  border-left-0 border-top-0 velha" (click)="setTrue(0,0)">
+          <span><i [ngClass]="{'fa-close': Player[0][0] == 1,  'fa-circle-thin': Player[0][0] == 2,'bounceIn': MatrizP[0][0], 'Player-1': Player[0][0] == 1, 'Player-2': Player[0][0] == 2}" class="fa fa-4x animated" aria-hidden="true"></i></span>
+        </div>
+
+        <div class="col-4 border-left-0 border-top-0 velha" (click)="setTrue(0,1)">
+          <span><i [ngClass]="{'fa-close': Player[0][1] == 1,  'fa-circle-thin': Player[0][1] == 2 ,'bounceIn': MatrizP[0][1], 'Player-1': Player[0][1] == 1, 'Player-2': Player[0][1] == 2}" class="fa fa-4x animated" aria-hidden="true"></i></span>
+        </div>
+
+        <div class="col-4  border-left-0 border-right-0 border-top-0 velha" (click)="setTrue(0,2)">
+          <span><i [ngClass]="{'fa-close': Player[0][2] == 1,  'fa-circle-thin': Player[0][2] == 2,'bounceIn': MatrizP[0][2], 'Player-1': Player[0][2] == 1, 'Player-2': Player[0][2] == 2}" class="fa fa-4x animated" aria-hidden="true"></i></span>
+        </div>
       </div>
+      <!-- Primeira Linha -->
 
-      <div class="col-4 border-left-0 border-top-0 velha" (click)="setTrue(0,1)">
-        <span><i [ngClass]="{'fa-close': Player[0][1] == 1,  'fa-circle-thin': Player[0][1] == 2 ,'bounceIn': TesteM[0][1], 'Player-1': Player[0][1] == 1, 'Player-2': Player[0][1] == 2}" class="fa fa-4x animated" aria-hidden="true"></i></span>
-      </div>
+      <!-- Segunda Linha -->
+      <div class="row ">
 
-      <div class="col-4  border-left-0 border-right-0 border-top-0 velha" (click)="setTrue(0,2)">
-        <span><i [ngClass]="{'fa-close': Player[0][2] == 1,  'fa-circle-thin': Player[0][2] == 2,'bounceIn': TesteM[0][2], 'Player-1': Player[0][2] == 1, 'Player-2': Player[0][2] == 2}" class="fa fa-4x animated" aria-hidden="true"></i></span>
-      </div>
-    </div>
-    <!-- Primeira Linha -->
-
-    <!-- Segunda Linha -->
-    <div class="row ">
-
-        <div class="col-4 border-left-0 border-top-0 velha" (click)="setTrue(1,0)">
-          <span><i [ngClass]="{'fa-close': Player[1][0] == 1,  'fa-circle-thin': Player[1][0] == 2,'bounceIn': TesteM[1][0], 'Player-1': Player[1][0] == 1, 'Player-2': Player[1][0] == 2}" class="fa fa-4x animated" aria-hidden="true"></i></span>
-        </div>
-    
-        <div class="col-4 border-left-0 border-top-0 velha" (click)="setTrue(1,1)">
-          <span><i [ngClass]="{'fa-close': Player[1][1] == 1,  'fa-circle-thin': Player[1][1] == 2 ,'bounceIn': TesteM[1][1], 'Player-1': Player[1][1] == 1, 'Player-2': Player[1][1] == 2} " class="fa fa-4x animated" aria-hidden="true"></i></span>
-        </div>
-    
-        <div class="col-4  border-left-0 border-right-0 border-top-0 velha" (click)="setTrue(1,2)">
-          <span><i [ngClass]="{'fa-close': Player[1][2] == 1,  'fa-circle-thin': Player[1][2] == 2 , 'Player-1': Player[1][2] == 1, 'Player-2': Player[1][2] == 2,'bounceIn': TesteM[1][2]}" class="fa fa-4x animated" aria-hidden="true"></i></span>
-        </div>
-    </div>
-    <!-- Segunda linha -->
-
-    <!-- Terceira Linha -->
-    <div class="row">
-
-        <div class="col-4 border-left-0 border-top-0 border-bottom-0 velha" (click)="setTrue(2,0)">
-          <span><i [ngClass]="{'fa-close': Player[2][0] == 1,  'fa-circle-thin': Player[2][0] == 2 , 'Player-1': Player[2][0] == 1, 'Player-2': Player[2][0] == 2,'bounceIn': TesteM[2][0]}" class="fa fa-4x animated" aria-hidden="true"></i></span>
-        </div>
-    
-        <div class="col-4  border-left-0 border-top-0 border-bottom-0 velha" (click)="setTrue(2,1)">
-          <span><i [ngClass]="{'fa-close': Player[2][1] == 1,  'fa-circle-thin': Player[2][1] == 2 , 'Player-1': Player[2][1] == 1, 'Player-2': Player[2][1] == 2, 'bounceIn': TesteM[2][1]}"  class="fa fa-4x animated" aria-hidden="true"></i></span>
-        </div>
-    
-        <div class="col-4 border-left-0 border-right-0 border-top-0 border-bottom-0 velha animated fadeInLeft" (click)="setTrue(2,2)">
-          <span><i [ngClass]="{'fa-close': Player[2][2] == 1, 'Player-1': Player[2][2] == 1, 'Player-2': Player[2][2] == 2, 'fa-circle-thin': Player[2][2] == 2 ,'bounceIn': TesteM[2][2]}"  class="fa fa-4x animated" aria-hidden="true"></i></span>
-        </div>
-    </div>
-    <!-- Terceira linha -->
-    </div>
-    <div class="row align-items-center">
-        <div class="col-12 col-sm-12 col-lg-5 col-xl-6 col-md-4">
-
-            <div class="col-12 align-self-center pt-2 animated wow fadeInLeft" data-wow-delay="0.9s">
-              <div class="chip Player-1 white-text z-depth-1">{{Player1}}</div>
-              <span class="placar pl-2">{{P1}}</span>
-            </div>
-            
-            <div class="col-12 pt-2 animated wow fadeInLeft" data-wow-delay="0.9s">
-              <div class="chip Player-2 white-text z-depth-1-half">{{Player2}}</div>
-              <span class="placar pl-2">{{P2}}</span>
-            </div>
+          <div class="col-4 border-left-0 border-top-0 velha" (click)="setTrue(1,0)">
+            <span><i [ngClass]="{'fa-close': Player[1][0] == 1,  'fa-circle-thin': Player[1][0] == 2,'bounceIn': MatrizP[1][0], 'Player-1': Player[1][0] == 1, 'Player-2': Player[1][0] == 2}" class="fa fa-4x animated" aria-hidden="true"></i></span>
           </div>
+      
+          <div class="col-4 border-left-0 border-top-0 velha" (click)="setTrue(1,1)">
+            <span><i [ngClass]="{'fa-close': Player[1][1] == 1,  'fa-circle-thin': Player[1][1] == 2 ,'bounceIn': MatrizP[1][1], 'Player-1': Player[1][1] == 1, 'Player-2': Player[1][1] == 2} " class="fa fa-4x animated" aria-hidden="true"></i></span>
+          </div>
+      
+          <div class="col-4  border-left-0 border-right-0 border-top-0 velha" (click)="setTrue(1,2)">
+            <span><i [ngClass]="{'fa-close': Player[1][2] == 1,  'fa-circle-thin': Player[1][2] == 2 , 'Player-1': Player[1][2] == 1, 'Player-2': Player[1][2] == 2,'bounceIn': MatrizP[1][2]}" class="fa fa-4x animated" aria-hidden="true"></i></span>
+          </div>
+      </div>
+      <!-- Segunda linha -->
 
+      <!-- Terceira Linha -->
+      <div class="row">
+
+          <div class="col-4 border-left-0 border-top-0 border-bottom-0 velha" (click)="setTrue(2,0)">
+            <span><i [ngClass]="{'fa-close': Player[2][0] == 1,  'fa-circle-thin': Player[2][0] == 2 , 'Player-1': Player[2][0] == 1, 'Player-2': Player[2][0] == 2,'bounceIn': MatrizP[2][0]}" class="fa fa-4x animated" aria-hidden="true"></i></span>
+          </div>
+      
+          <div class="col-4  border-left-0 border-top-0 border-bottom-0 velha" (click)="setTrue(2,1)">
+            <span><i [ngClass]="{'fa-close': Player[2][1] == 1,  'fa-circle-thin': Player[2][1] == 2 , 'Player-1': Player[2][1] == 1, 'Player-2': Player[2][1] == 2, 'bounceIn': MatrizP[2][1]}"  class="fa fa-4x animated" aria-hidden="true"></i></span>
+          </div>
+      
+          <div class="col-4 border-left-0 border-right-0 border-top-0 border-bottom-0 velha animated fadeInLeft" (click)="setTrue(2,2)">
+            <span><i [ngClass]="{'fa-close': Player[2][2] == 1, 'Player-1': Player[2][2] == 1, 'Player-2': Player[2][2] == 2, 'fa-circle-thin': Player[2][2] == 2 ,'bounceIn': MatrizP[2][2]}"  class="fa fa-4x animated" aria-hidden="true"></i></span>
+          </div>
+      </div>
+      <!-- !Terceira linha -->
     </div>
+
+    <div *ngIf="Reinicia" class="col-12 col-sm-12 col-lg-7 col-xl-6 col-md-8 col-sm-12">
+      <div class="row">
+        <span class="placar wow fadeInLeft" data-wow-delay="0.9s"> {{Status}}</span>       
+        <i class="fa fa-repeat fa-4x placar white-text animated pl-2" (click)="Reinicia = !Reinicia" (mouseover)="Anima = !Anima" [ngClass]="{'rotateIn': Anima}" aria-hidden="true"></i>    
+      </div>
+    </div>
+
+    <!-- Controle da pontuação -->
+    <div class="row align-items-center">
+      <div class="col-12 col-sm-12 col-lg-5 col-xl-6 col-md-4">
+
+        <!-- Nome dos Jogadores -->
+        <div class="col-12 align-self-center pt-2 animated wow fadeInLeft" data-wow-delay="0.9s">
+          <div class="chip Player-1 white-text z-depth-1">{{Player1}}</div>
+          <span class="placar pl-2">{{P1}}</span>
+        </div>
+            
+        <div class="col-12 pt-2 animated wow fadeInLeft" data-wow-delay="0.9s">
+          <div class="chip Player-2 white-text z-depth-1-half">{{Player2}}</div>
+          <span class="placar pl-2">{{P2}}</span>
+        </div>
+        <!-- !Nome dos Jogadores -->
+      
+      </div>
+    </div>
+    <!-- !Controle da pontuação -->
 
 
 

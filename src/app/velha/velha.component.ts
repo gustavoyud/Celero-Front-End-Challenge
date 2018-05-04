@@ -105,9 +105,11 @@ export class VelhaComponent implements OnInit {
       //Verifica a primeira linha
       if(this.player[0][i] == jogador)
         firstLineVerifier++;
+        
       //verifica a segunda linha
       if(this.player[1][i] == jogador)
         secondLineVerifier++;
+
       //verifica a terceira linha
       if(this.player[2][i] == jogador)
         thirdLineVerifier++;
@@ -117,12 +119,15 @@ export class VelhaComponent implements OnInit {
     //Realiza a verificação Diagonal    
     for (let i = 0; i <3; i++)
     {
+      //Diagonal direita
       if(this.player[i][i] == jogador)
         diagonalVerifier++;
-      
+
+      //Diagonal esquerda
       if(this.player[leftDiagonal][i] == jogador)
         leftDiagonalVerifier++;
-        
+
+      //Decrementa da variavel auxiliar
       leftDiagonal--;
     }
 
@@ -133,37 +138,42 @@ export class VelhaComponent implements OnInit {
       this.Finish(jogador,true);
   }
 
-  private Finish(Jogador: Number,Velha: boolean)
+  private Finish(jogador: Number,velha: boolean)
   {
+    //Esconde o tabuleiro e mostra o placar
     this.reset= true;
 
-    //Zera as matrizes de boolean
+    //Zera as matrizes
     for(let i = 0; i < 3; i ++)
     {
       for(let j = 0; j < 3; j++)
       {
+        //Zera a matriz de booleans
         if(this.mainMatrix[i][j] == true)
           this.mainMatrix[i][j] = false;
-        
+        //Zera a matriz de jogadores
         if(this.player[i][j] > 0)
           this.player[i][j] = 0;
       }
     }
      
-    
-    if(Jogador == 1 && Velha == false)
+    //Retorna que o jogador 1 foi o vencedor
+    if(jogador == 1 && velha == false)
     {
       this.scoreboardPlayer1++;
       this.status = this.player1+" venceu a rodada!";
     }
-    else if(Jogador == 2 && Velha == false)
+    //Retorna que o jogador 2 foi o vencedor
+    else if(jogador == 2 && velha == false)
     {
       this.scoreboardPlayer2++;
       this.status = this.player2+" venceu a rodada!";
     }
-    else if(Velha)
+    //Retorna que foi velha
+    else if(velha)
       this.status = "O Jogo deu velha";
   }
+
   //Muda o Turno dos jogadores
   private NextTurn()
   {

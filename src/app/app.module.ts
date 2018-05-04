@@ -6,13 +6,15 @@ import { FormsModule }   from '@angular/forms';
 import { AppComponent } from './app.component';
 import { VelhaComponent } from './velha/velha.component';
 import { JogadoresComponent } from './jogadores/jogadores.component';
+import { SquareComponent } from './velha/square/square.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     VelhaComponent,
-    JogadoresComponent
+    JogadoresComponent,
+    SquareComponent
   ],
   imports: [
     BrowserModule,

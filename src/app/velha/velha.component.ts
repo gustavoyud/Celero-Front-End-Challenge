@@ -72,6 +72,8 @@ export class VelhaComponent implements OnInit {
     let p1 = 0;
     let s1 = 0;
     let t1 = 0;
+    let d = 0;
+    let d2 = 0;
 
     //Verifica se 'deu velha'
     for(let i = 0; i < 3; i++)
@@ -101,13 +103,26 @@ export class VelhaComponent implements OnInit {
         t1++;
     }
 
+    //Variavel auxiliar
+    let dv = 2;
+    //Realiza a verificação Diagonal    
+    for (let i = 0; i <3; i++)
+    {
+      if(this.Player[i][i] == Jogador)
+        d++;
+      
+      if(this.Player[dv][i] == Jogador)
+        d2++;
+        
+      dv--;
+    }
+
     //Se algum dos valores tiver marcado 3 casas o jogo termina
-    if(p == 3 || s == 3 || t == 3 || p1 == 3 || s1 == 3 || t1 == 3)
+    if(p == 3 || s == 3 || t == 3 || p1 == 3 || s1 == 3 || t1 == 3 || d == 3 || d2 == 3)
       this.Termina(Jogador,false);
     else if(velha == 9)
-    {
       this.Termina(Jogador,true);
-    }
+
   }
 
   public Termina(Jogador: Number,Velha: boolean)

@@ -49,8 +49,6 @@ export class VelhaComponent implements OnInit {
   //Seta o valor passado como verdade na Matriz de Bools
   public SetTrue(Linha: number, Coluna: number)
   {
-    console.log(this.player)
-
     //Se a matriz Já não estiver alocada
     if(this.mainMatrix[Linha][Coluna] == false)
     {
@@ -171,7 +169,7 @@ export class VelhaComponent implements OnInit {
     }
     //Retorna que foi velha
     else if(velha)
-      this.status = "O Jogo deu velha";
+      this.status = 'O Jogo deu velha';
   }
 
   //Muda o Turno dos jogadores

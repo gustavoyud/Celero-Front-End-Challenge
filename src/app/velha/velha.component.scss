@@ -2,51 +2,21 @@ $Cor: #29CC62;
 $Cor2: #4285F4;
 $Cor3: #00695c;
 
+//Estilização do tabuleiro
 .velha{
     height: 170px; 
     border: 7px solid ;
     display: table; 
     border-color: #fff;
 }
-
+//Alinha o X ou o O no meio da coluna
 .velha span 
 {
   display: table-cell; 
   vertical-align: middle; 
   text-align: center; 
 }
-
-i.Player-1{
-    color: $Cor;
-}
-i.Player-2
-{
-    color: $Cor2;
-}
-div.Player-1
-{
-    background: $Cor;
-}
-div.Player-2
-{
-    background: $Cor2;
-}
-
-div .cores
-{
-    height: 50px;
-}
-
-.chip {
-    display: inline-block;
-    padding: 0 25px;
-    height: 50px;
-    font-size: 16px;
-    line-height: 50px;
-    border-radius: 25px;
-    background: $Cor;
-}
-
+//Breakpoint
 @media only screen and (max-width: 435px) {
     .velha{
         height: 120px;
@@ -56,19 +26,73 @@ div .cores
     }
     
 }
-
+//Estilza os textos
+i.Player-1
+{
+    color: $Cor;
+}
+span.Player
+{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+}
+i.Player-2
+{
+    color: $Cor2;
+}
+div.Player-1
+{
+    background: $Cor;
+}
+span.Player-1
+{
+    background: $Cor;
+}
+div.Player-2
+{
+    background: $Cor2;
+}
+span.Player-2
+{
+    background: $Cor2;
+}
 span.placar{
     font-family:  'Roboto', sans-serif;
 	font-weight: 100;
     font-size: 40px;
     color: #fff;
 }
-
 .Bold
 {
     font-family:  'Roboto', sans-serif;
 	font-weight: 500;
     font-size: 40px;
     color: #fff;
-    
 }
+
+//Cria o formato de chip
+.chip {
+    display: inline-block;
+    padding: 0 10px;
+    height: 50px;
+    font-size: 16px;
+    line-height: 50px;
+    border-radius: 25px;
+}
+
+//Muda o cursor
+.reset
+{
+    cursor: pointer;
+}
+
+//Centraliza o container de reset
+#reseta {
+    margin: 0;  
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+ }

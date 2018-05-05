@@ -2,8 +2,10 @@
   <div class="row">
     <!-- Inicio do Tabuleiro -->
     <div *ngIf="!reset" class="col-12 col-sm-12 col-lg-7 col-xl-6 col-md-8 col-sm-12">
-      <span class="placar"> <i class="fa animated flipInY" [ngClass]="{'fa-close Player-1': turn == 1,  'fa-circle-thin Player-2': turn == 2}"  aria-hidden="true"></i>  Joga </span>
-      
+        <span class="placar text-center text-md-center text-xl-left">
+            <i class="fa animated flipInY" [ngClass]="{'fa-close Player-1': turn == 1,  'fa-circle-thin Player-2': turn == 2}"  aria-hidden="true"></i>  Joga 
+           </span>
+
       <!-- Primeira Linha -->
       <div class="row">
           
@@ -24,8 +26,8 @@
             <app-square [player]="player" [mainMatrix]="mainMatrix" [line]="0" [collumn]="2"></app-square>
           </span>
         </div>
-      </div>
-      <!-- Primeira Linha -->
+      </div> 
+      <!-- !Primeira Linha -->
 
       <!-- Segunda Linha -->
       <div class="row ">
@@ -75,50 +77,56 @@
     </div>
 
     <!-- Resete -->
-    <div *ngIf="reset" class="col-12 col-sm-12 col-lg-7 col-xl-6 col-md-8 col-sm-12">
+    <div *ngIf="reset" id="reseta" class="col-12 col-sm-12 col-lg-7 col-xl-7 col-md-8 col-sm-12">
       <div class="row text-center">
         <!-- Resposta -->
         <div class="col-12">
-            <span class="placar wow fadeInLeft text-center" data-wow-delay="0.9s"> {{status}}</span>       
+            <span  class="placar animated wow zoomInDown text-center" data-wow-delay="1.5s"> <span class="Bold">#</span>{{status}}</span>       
         </div>
         <!-- Placar do Jogador 1 -->
-        <div class="col-6 align-self-center pt-2 animated wow fadeInLeft" data-wow-delay="0.9s">
-          <div class="chip Player-1 white-text z-depth-1">{{player1}}</div>
-          <span class="placar">{{scoreboardPlayer1}}</span>
+        <div class="col-5 align-self-center pt-2 animated wow swing" data-wow-delay="0.9s">
+          <span class="chip placar Player-1 white-text z-depth-1" mdbTooltip="{{player1}}" placement="left">{{scoreboardPlayer1}}</span>
         </div>
-        <!-- Placar do Jogador 2 -->    
-        <div class="col-6 pt-2 animated wow fadeInLeft" data-wow-delay="0.9s">
-          <div class="chip Player-2 white-text z-depth-1-half">{{player2}}</div>
-          <span class="placar">{{scoreboardPlayer2}}</span>
+        <!-- Botão de reinicio -->
+        <div class="col-2 text-center">
+            <i class="fa reset fa-repeat fa-4x placar white-text animated pl-2" (click)="reset = !reset" (mouseover)="animate = true" (mouseout)="animate = false" [ngClass]="{'rotateIn': animate}" aria-hidden="true"></i>    
         </div>
 
-        <!-- Botão de reinicio -->
-        <div class="col-12 text-center">
-          <i class="fa fa-repeat fa-4x placar white-text animated pl-2" (click)="reset = !reset" (mouseover)="animate = !animate" [ngClass]="{'rotateIn': animate}" aria-hidden="true"></i>    
+        <!-- Placar do Jogador 2 -->    
+        <div class="col-5  pt-2 animated wow swing" data-wow-delay="0.9s">
+          <span class="chip placar Player-2 white-text z-depth-1-half" mdbTooltip="{{player2}}" placement="right">{{scoreboardPlayer2}}</span>
         </div>
+
+
       </div>
     </div>
     <!-- !Resete -->
 
+
+
+
     <!-- Controle da pontuação -->
-    <div *ngIf="!reset" class="row align-items-center">
-      <div class="col-12">
+    <div *ngIf="!reset" class="col-xl-6 col-lg-5 col-md-4 col-sm-12 col-12">
+      <div class="row">
 
         <!-- Nome dos Jogadores -->
-        <div class="col-12 align-self-center pt-2 animated wow fadeInLeft" data-wow-delay="0.9s">
-          <div class="chip Player-1 white-text z-depth-1"> {{player1}}</div>
-          <span class="placar pl-2 ">{{scoreboardPlayer1}} </span>                    
+        <div class="col-12 col-xl-6 col-md-4 align-self-center pt-2 animated wow fadeInDown" data-wow-delay="0.9s">
+          <span class="Player Player-1 chip wow fadeIn z-depth-1" data-wow-delay="2.5s">{{player1}}</span>                    
+          <span class="placar pl-3">{{scoreboardPlayer1}}</span> 
         </div>
             
-        <div class="col-12 pt-2 animated wow fadeInLeft" data-wow-delay="0.9s">
-          <div class="chip Player-2 white-text z-depth-1-half">{{player2}}</div>
-          <span class="placar pl-2">{{scoreboardPlayer2}}</span>
+        <div class="col-12 col-xl-6 col-md-4 pt-2 animated wow slideInUp" data-wow-delay="0.9s">
+            <span class="Player-2 Player chip wow fadeIn z-depth-1" data-wow-delay="2.5s">{{player2}}</span>                    
+            <span class="placar pl-3">{{scoreboardPlayer2}}</span> 
         </div>
         <!-- !Nome dos Jogadores -->
       
       </div>
     </div>
-    <!-- !Controle da pontuação -->
   </div>
+    <!-- !Controle da pontuação -->
+  
+
+
 </div>
 

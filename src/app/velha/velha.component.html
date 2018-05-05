@@ -1,10 +1,12 @@
+<div id="fundo">
+  <img src="../../assets/bg-game.jpg" class="bg" alt="Game background">
+</div>
+
 <div class="container pt-5 pb-5 animated fadeInUp">
   <div class="row">
     <!-- Inicio do Tabuleiro -->
-    <div *ngIf="!reset" class="col-12 col-sm-12 col-lg-7 col-xl-6 col-md-8 col-sm-12">
-        <span class="placar text-center text-md-center text-xl-left">
-            <i class="fa animated flipInY" [ngClass]="{'fa-close Player-1': turn == 1,  'fa-circle-thin Player-2': turn == 2}"  aria-hidden="true"></i>  Joga 
-           </span>
+    <div *ngIf="!reset" class="board col-12 col-sm-12 col-lg-7 col-xl-6 col-md-8 col-sm-12">
+
 
       <!-- Primeira Linha -->
       <div class="row">
@@ -21,7 +23,7 @@
           </span>
         </div>
 
-        <div class="col-4  border-left-0 border-right-0 border-top-0 velha" (click)="SetTrue(0,2)">
+        <div class="col-4  border-left-0 border-right-0 border-top-0 velha velhaLeft" (click)="SetTrue(0,2)">
           <span>
             <app-square [player]="player" [mainMatrix]="mainMatrix" [line]="0" [collumn]="2"></app-square>
           </span>
@@ -44,7 +46,7 @@
             </span>
           </div>
       
-          <div class="col-4  border-left-0 border-right-0 border-top-0 velha" (click)="SetTrue(1,2)">
+          <div class="col-4  border-left-0 border-right-0 border-top-0 velha velhaLeft" (click)="SetTrue(1,2)">
             <span>
               <app-square [player]="player" [mainMatrix]="mainMatrix" [line]="1" [collumn]="2"></app-square>
             </span>
@@ -55,7 +57,7 @@
       <!-- Terceira Linha -->
       <div class="row">
 
-          <div class="col-4 border-left-0 border-top-0 border-bottom-0 velha" (click)="SetTrue(2,0)">
+          <div class="col-4 border-left-0 border-top-0 border-bottom-0 velhaRight velha" (click)="SetTrue(2,0)">
             <span>
               <app-square [player]="player" [mainMatrix]="mainMatrix" [line]="2" [collumn]="0"></app-square>
             </span>
@@ -67,7 +69,7 @@
             </span>
           </div>
       
-          <div class="col-4 border-left-0 border-right-0 border-top-0 border-bottom-0 velha animated fadeInLeft" (click)="SetTrue(2,2)">
+          <div class="col-4 border-left-0 border-right-0 border-top-0 border-bottom-0 velhaLeft velha animated fadeInLeft" (click)="SetTrue(2,2)">
             <span>
               <app-square [player]="player" [mainMatrix]="mainMatrix" [line]="2" [collumn]="2"></app-square>
             </span>
@@ -77,7 +79,7 @@
     </div>
 
     <!-- Resete -->
-    <div *ngIf="reset" id="reseta" class="col-12 col-sm-12 col-lg-7 col-xl-7 col-md-8 col-sm-12">
+    <div *ngIf="reset" id="reseta" class="col-10 col-sm-10 col-lg-7 col-xl-7 col-md-8">
       <div class="row text-center">
         <!-- Resposta -->
         <div class="col-12">
@@ -101,32 +103,39 @@
       </div>
     </div>
     <!-- !Resete -->
-
-
-
-
     <!-- Controle da pontuação -->
-    <div *ngIf="!reset" class="col-xl-6 col-lg-5 col-md-4 col-sm-12 col-12">
-      <div class="row">
 
-        <!-- Nome dos Jogadores -->
-        <div class="col-12 col-xl-6 col-md-4 align-self-center pt-2 animated wow fadeInDown" data-wow-delay="0.9s">
-          <span class="Player Player-1 chip wow fadeIn z-depth-1" data-wow-delay="2.5s">{{player1}}</span>                    
-          <span class="placar pl-3">{{scoreboardPlayer1}}</span> 
+    <div *ngIf="!reset" class="pt-3 col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 offset-xl-2 offset-lg-1 offset-md-0 offset-sm-0">
+        <div class="card z-depth-1-half scoreboard">
+            <div class="card-header bg-white z-depth-1-half">
+                <span class="text-center h1-responsive text-md-center text-xl-left">
+                    <i class="fa animated flipInY" [ngClass]="{'fa-close Player-1': turn == 1,  'fa-circle-thin Player-2': turn == 2}"  aria-hidden="true"></i>  Joga 
+                   </span>
+              </div>
+            <div class="card-body ">
+                <div class="row">
+
+                    <!-- Nome dos Jogadores -->
+                    <div class="col-6 col-xl-6 col-md-6 pt-2 animated wow fadeInDown" data-wow-delay="0.9s">                  
+                      <div class="row">
+                          <span class="placar white-text pl-3">{{scoreboardPlayer1}}</span>
+                          <dd class="col-12 text-c Bold">{{player1}}</dd>
+                      </div> 
+                    </div>
+                        
+                    <div class="col-6 col-xl-6 col-md-6 pt-2 animated wow slideInUp" data-wow-delay="0.9s">
+                        <div class="row">
+                            <span class="placar white-text pl-3">{{scoreboardPlayer2}}</span>
+                            <dd class="col-12 blue-text Bold">{{player2}}</dd>
+                        </div> 
+                    </div>
+                    <!-- !Nome dos Jogadores -->
+                  
+                  </div>
+              </div>
         </div>
-            
-        <div class="col-12 col-xl-6 col-md-4 pt-2 animated wow slideInUp" data-wow-delay="0.9s">
-            <span class="Player-2 Player chip wow fadeIn z-depth-1" data-wow-delay="2.5s">{{player2}}</span>                    
-            <span class="placar pl-3">{{scoreboardPlayer2}}</span> 
-        </div>
-        <!-- !Nome dos Jogadores -->
-      
-      </div>
     </div>
   </div>
     <!-- !Controle da pontuação -->
-  
-
-
 </div>
 

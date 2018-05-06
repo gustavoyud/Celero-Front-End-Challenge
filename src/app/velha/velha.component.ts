@@ -4,7 +4,7 @@ import { InfosService } from './infos.service';
 @Component({
   selector: 'app-velha',
   templateUrl: './velha.component.html',
-  styleUrls: ['./velha.component.scss']
+  styleUrls: ['./velha.component.scss'],
 })
 export class VelhaComponent implements OnInit {
   //Recebe Os Jogadores em ordem

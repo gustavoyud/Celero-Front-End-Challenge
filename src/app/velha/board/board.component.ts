@@ -8,11 +8,11 @@ import {trigger,state,style,animate,transition,keyframes} from '@angular/animati
   styleUrls: ['./board.component.scss'],
   animations: [
     trigger('boarder', [
-      state('in', style({opacity: 1,height: '*'})),
+      state('in', style({opacity: 1} )),
       transition('void => *', [
-        animate(200, keyframes([
-          style({opacity: 0, height:0, offset: 0}),
-          style({opacity: 1, height:'*',  offset: 1})
+        animate('.6s ease-in', keyframes([
+          style({opacity: 0 ,   offset: 0}),
+          style({opacity: 1,  offset: 1}),
         ]))
       ]),
     ])

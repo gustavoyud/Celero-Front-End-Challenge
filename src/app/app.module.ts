@@ -10,6 +10,7 @@ import { SquareComponent } from './velha/square/square.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { BoardComponent } from './velha/board/board.component';
 import {InfosService} from './velha/infos.service';
+import { CardsComponent } from './jogadores/cards/cards.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {InfosService} from './velha/infos.service';
     VelhaComponent,
     JogadoresComponent,
     SquareComponent,
-    BoardComponent
+    BoardComponent,
+    CardsComponent
   ],
   imports: [
     BrowserModule,

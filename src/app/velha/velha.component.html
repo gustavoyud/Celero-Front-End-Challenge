@@ -79,7 +79,7 @@
   <!-- Linha -->
   <div class="row">
     <!-- Tabuleiro -->
-    <div *ngIf="!reset">
+    <div *ngIf="!reset" >
         <app-board [turn]="turn" [scoreboardPlayer1]="scoreboardPlayer1" [scoreboardPlayer2]="scoreboardPlayer2" (turnEmitter)="EventReceiver($event)"></app-board>
     </div>
     <!-- !Tabuleiro -->

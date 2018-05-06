@@ -1,6 +1,5 @@
-$Green: #29CC62;
 $Red: #e53935;
-
+$Green: #29CC62;
 
 .card-height{
     height: 20px;
@@ -15,4 +14,28 @@ $Red: #e53935;
 .versus{
     color: $Red;
 }
+.iniciar{
+    cursor: pointer;
+}
+.Bold
+{
+	font-weight: 500;
+}
+.thin
+{
+    font-weight: 100;
+}
 
+ul.todolist
+{
+    list-style-type: none;
+}
+ul.todolist li::before
+{
+    content: '\f054';
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    padding-right: 10px;
+}

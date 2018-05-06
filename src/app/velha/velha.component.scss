@@ -2,6 +2,17 @@ $Cor: #29CC62;
 $Cor2: #4285F4;
 $Cor3: #00695c;
 
+#tabela{
+    margin: 0;  
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+
 //Estilização do tabuleiro
 .velha{
     height: 170px; 
@@ -9,6 +20,61 @@ $Cor3: #00695c;
     display: table; 
     border-color: #fff;
 }
+#score
+{
+    background:#fff;
+    font-size: 20px;
+    transition: .5 all;
+    color: #212121;
+    height: 50px;
+}
+//Breakpoints e configurações do tabuleiro
+@media only screen and (min-width: 1600px) {
+    .velha{
+        height: 210px; 
+        border: 7px solid ;
+        display: table; 
+        border-color: #fff;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 990px) {
+    #tabela{
+        padding-top: 50px;
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 768px) {
+    .velha{
+        height: 180px; 
+    }
+    ul.nav span
+    {
+      font-size: 20px;
+    }
+    #tabela{
+        padding-top: 50px;
+    }
+}
+
+@media only screen and (min-width: 400px) and (max-width: 576px) {
+    .velha{
+        height: 150px; 
+    }
+    #tabela{
+        padding-top: 100px;
+    }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 400px) {
+    .velha{
+        height: 120px; 
+    }
+    #tabela{
+        padding-top: 100px;
+    }
+}
+
+
 //Alinha o X ou o O no meio da coluna
 .velha span 
 {
@@ -16,30 +82,7 @@ $Cor3: #00695c;
   vertical-align: middle; 
   text-align: center; 
 }
-//Breakpoint
-@media only screen and (max-width: 435px) {
-    .velha{
-        height: 100px;
-        border: 7px solid ;
-        display: table; 
-        border-color: #fff;
-    }   
-}
-@media only screen and (min-width : 320px) and (max-width : 400px) {
-    .velha{
-        height: 80px;
-        border: 7px solid;
-        display: table; 
-        border-color: #fff;
-    }
-    .velhaLeft{
-        width: 100px;
-    }
-    .velhaRight
-    {
-        padding-left: 100px;
-    }
-}
+
 
 //Estilza os textos
 i.Player-1
@@ -77,6 +120,7 @@ span.Player-2
 {
     background: $Cor2;
 }
+
 span.placar{
     font-family:  'Roboto', sans-serif;
 	font-weight: 100;
@@ -85,10 +129,12 @@ span.placar{
 }
 .Bold
 {
-    font-family:  'Roboto', sans-serif;
 	font-weight: 500;
 }
-
+.thin
+{
+	font-weight: 100;
+}
 //Cria o formato de chip
 .chip {
     display: inline-block;
@@ -128,8 +174,8 @@ span.placar{
 
  //Imagem de fundo
  div img.bg {
-    -webkit-filter: blur(10px); 
-    filter: blur(10px);
+    -webkit-filter: brightness(12%); 
+    filter: brightness(12%);
     min-height: 100%;
     min-width: 1024px;
     width: 100%;
@@ -137,4 +183,21 @@ span.placar{
     position: fixed;
     top: 0;
     left: 0;
+  }
+
+  #board
+  {
+    margin: 0;  
+    position: absolute;
+    width: 20%;
+  }
+
+  ul.nav span
+  {
+    font-size: 30px;
+  }
+
+  .fs15
+  {
+      font-size: 15px;
   }

@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { VelhaComponent } from './velha/velha.component';
 import { JogadoresComponent } from './jogadores/jogadores.component';
 import { SquareComponent } from './velha/square/square.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { SquareComponent } from './velha/square/square.component';
     BrowserModule,
     FormsModule,
     MDBBootstrapModule.forRoot(),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

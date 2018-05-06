@@ -30,7 +30,7 @@ export class VelhaComponent implements OnInit {
   @Input() public initialPlayer: Number; 
 
   //Controla de qual jogador é a vez
-  private turn: Number = 1;
+  public turn: Number = 1;
 
   //Cria array de controle das jogadas por usuario
   public player: Number[][] = [

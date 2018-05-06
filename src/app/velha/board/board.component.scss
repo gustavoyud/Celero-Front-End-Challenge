@@ -1,0 +1,190 @@
+$Cor: #29CC62;
+$Cor2: #4285F4;
+$Cor3: #00695c;
+
+#tabela{
+    margin: 0;  
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+
+//Estilização do tabuleiro
+.velha{
+    height: 170px; 
+    border: 7px solid ;
+    display: table; 
+    border-color: #fff;
+}
+#score
+{
+    background:#fff;
+    font-size: 20px;
+    transition: .5 all;
+    color: #212121;
+    height: 50px;
+}
+//Breakpoints e configurações do tabuleiro
+@media only screen and (min-width: 1600px) {
+    .velha{
+        height: 210px; 
+        border: 7px solid ;
+        display: table; 
+        border-color: #fff;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 990px) {
+    #tabela{
+        padding-top: 50px;
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 768px) {
+    .velha{
+        height: 180px; 
+    }
+    ul.nav span
+    {
+      font-size: 20px;
+    }
+    #tabela{
+        padding-top: 50px;
+    }
+}
+
+@media only screen and (min-width: 400px) and (max-width: 576px) {
+    .velha{
+        height: 150px; 
+    }
+    #tabela{
+        padding-top: 100px;
+    }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 400px) {
+    .velha{
+        height: 120px; 
+    }
+    #tabela{
+        padding-top: 100px;
+    }
+}
+
+
+//Alinha o X ou o O no meio da coluna
+.velha span 
+{
+  display: table-cell; 
+  vertical-align: middle; 
+  text-align: center; 
+}
+
+
+//Estilza os textos
+i.Player-1
+{
+    color: $Cor;
+}
+span.Player
+{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    
+}
+.text-c
+{
+    color: $Cor;
+}
+i.Player-2
+{
+    color: $Cor2;
+}
+div.Player-1
+{
+    background: $Cor;
+}
+span.Player-1
+{
+    background: $Cor;
+}
+div.Player-2
+{
+    background: $Cor2;
+}
+span.Player-2
+{
+    background: $Cor2;
+}
+
+span.placar{
+    font-family:  'Roboto', sans-serif;
+	font-weight: 100;
+    font-size: 40px;
+    color: #fff;
+}
+.Bold
+{
+	font-weight: 500;
+}
+.thin
+{
+	font-weight: 100;
+}
+//Cria o formato de chip
+.chip {
+    display: inline-block;
+    padding: 0 10px;
+    height: 50px;
+    font-size: 16px;
+    line-height: 50px;
+    border-radius: 25px;
+}
+
+//Muda o cursor
+.reset
+{
+    cursor: pointer;
+}
+
+//Centraliza o container de reset
+#reseta {
+    margin: 0;  
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+ }
+ .title
+ {
+	font-weight: 500;
+    font-size: 40px;
+    color: #212121;
+ }
+
+ //scoreboard
+ .scoreboard{
+     background: rgba(0, 0, 0, 0.5) ;
+ }
+
+  #board
+  {
+    margin: 0;  
+    position: absolute;
+    width: 20%;
+  }
+
+  ul.nav span
+  {
+    font-size: 30px;
+  }
+
+  .fs15
+  {
+      font-size: 15px;
+  }

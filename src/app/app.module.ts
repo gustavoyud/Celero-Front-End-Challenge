@@ -8,14 +8,16 @@ import { VelhaComponent } from './velha/velha.component';
 import { JogadoresComponent } from './jogadores/jogadores.component';
 import { SquareComponent } from './velha/square/square.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+import { BoardComponent } from './velha/board/board.component';
+import {InfosService} from './velha/infos.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     VelhaComponent,
     JogadoresComponent,
-    SquareComponent
+    SquareComponent,
+    BoardComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +25,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MDBBootstrapModule.forRoot(),
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [InfosService],
   bootstrap: [AppComponent],
   schemas: [ NO_ERRORS_SCHEMA ]
 })

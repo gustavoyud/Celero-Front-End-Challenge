@@ -1,71 +1,80 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { InfosService } from './infos.service';
 
 @Component({
   selector: 'app-velha',
   templateUrl: './velha.component.html',
-  styleUrls: ['./velha.component.scss']
+  styleUrls: ['./velha.component.scss'],
 })
 export class VelhaComponent implements OnInit {
   //Recebe Os Jogadores em ordem
-  public Player1: string;
-  public Player2: string;
+  public player1: string;
+  public player2: string;
 
+  //Controla o que será exibido como resposta
+  public status: string;
+  
   //Contador de Pontos
-  public P1: number = 0;
-  public P2: number = 0;
+  public scoreboardPlayer1: number = 0;
+  public scoreboardPlayer2: number = 0;
+
+  //variável responsável pelas animações
+  public animate: boolean = false;
+
+  //variável responsável por reiniciar o Jogo
+  public reset: boolean = false;
 
   //Recebe array de outro component
-  @Input() Jogadores: string[];
-  //Recebe a jogada
-  @Input() Joga: Number; 
-  public Jogada: Number = 1;
+  @Input() public players: string[];
 
-  //Cria array de controle das jogadas por usuario
-  public Player: Number[][] = [
-    [0,0,0],
-    [0,0,0],
-    [0,0,0]
-  ];
+  //Recebe o Jogador que inicia 
+  @Input() public initialPlayer: Number; 
 
-  //Cria uma Matriz de Bool para controle das casas clicadas
-  public TesteM: boolean[][] = [
-    [false,false,false],
-    [false,false,false],
-    [false,false,false]
-  ];
+  //Controla de qual jogador é a vez
+  public turn: Number = 1;
 
-  //Seta o valor passado como verdade na Matriz de Bools
-  public setTrue(Linha: number, Coluna: number)
+  //Recebe as variaveis
+  public ReceiveData()
   {
-    this.TesteM[Linha][Coluna] = true;
-    //Aloca a jogada na matriz de jogadores 
-    if(this.Player[Linha][Coluna] == 0)
-      this.Player[Linha][Coluna] = this.Jogada;
-
-    this.ChangesTurn();
+    this.info.currentReset.subscribe(reset => this.reset = reset);
+    this.info.currentStatus.subscribe(status => this.status = status);
+    this.info.currentScoreboardPlayer1.subscribe(scoreboardPlayer1 => this.scoreboardPlayer1 = scoreboardPlayer1);
+    this.info.currentScoreboardPlayer2.subscribe(scoreboardPlayer2 => this.scoreboardPlayer2 = scoreboardPlayer2);
   }
 
-  //Muda o Turno dos jogadores
-  public ChangesTurn()
+  //Recebe as mudanças ocorridas em outro componente
+  public EventReceiver(changes)
   {
-    if(this.Jogada == 1)
-      this.Jogada = 2;
-    else
-      this.Jogada = 1;
+    this.ReceiveData();
   }
 
+  //chamado quando o botão 'reset' é clicado
+  public ChangesReset()
+  {
+    this.reset = !this.reset;
+    this.info.ChangeReset(this.reset);
+  }
+
+  constructor(private info: InfosService){}
 
   ngOnInit() {
-    if(this.Joga == 1)
+    //Ordena os Jogadores
+    if(this.initialPlayer == 1)
     {
-      this.Player1 = this.Jogadores[0];
-      this.Player2 = this.Jogadores[1];
+      this.player1 = this.players[0];
+      this.player2 = this.players[1];
     }
     else
     {
-      this.Player1 = this.Jogadores[1];
-      this.Player2 = this.Jogadores[0];
+      this.player1 = this.players[1];
+      this.player2 = this.players[0];
     }
+
+    //Passa atraves do serviço o nome dos jogadores para o componente 'board'
+    this.info.currentTurn.subscribe(turn =>this.turn = turn);
+    this.info.ChangePlayers(this.player1,this.player2);
+    this.ReceiveData();
   }
+
 
 }

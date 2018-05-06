@@ -1,10 +1,22 @@
 import { Component, OnInit, Output, EventEmitter,Input } from '@angular/core';
 import {InfosService} from '../infos.service';
+import {trigger,state,style,animate,transition,keyframes} from '@angular/animations';
 
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
-  styleUrls: ['./board.component.scss']
+  styleUrls: ['./board.component.scss'],
+  animations: [
+    trigger('boarder', [
+      state('in', style({opacity: 1,height: '*'})),
+      transition('void => *', [
+        animate(200, keyframes([
+          style({opacity: 0, height:0, offset: 0}),
+          style({opacity: 1, height:'*',  offset: 1})
+        ]))
+      ]),
+    ])
+  ]
 })
 export class BoardComponent implements OnInit {  
   //Emissor de mudanças na variavel 'turn'
@@ -166,9 +178,7 @@ export class BoardComponent implements OnInit {
     else if(jogador == 2 && velha == false)
     {
       this.scoreboardPlayer2++;
-      this.status = this.player2+" venceu a rodada!";
-      console.log("status"+ jogador );
-    
+      this.status = this.player2+" venceu a rodada!";    
     }
     //Retorna que foi velha
     else if(velha)
@@ -192,7 +202,7 @@ export class BoardComponent implements OnInit {
   {
     this.info.ChangeValues(this.reset,this.status,this.scoreboardPlayer1,this.scoreboardPlayer2);
   }
-
+  //Transmite para os outros componentes que teve mudanças 
   public EmitChanges()
   {
     this.turnEmitter.emit(this.turn);

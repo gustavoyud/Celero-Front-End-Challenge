@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import {trigger,state,style,animate,transition,group} from '@angular/animations';
+import {trigger,state,style,animate,transition,keyframes} from '@angular/animations';
 
 @Component({
   selector: 'app-square',
@@ -7,10 +7,13 @@ import {trigger,state,style,animate,transition,group} from '@angular/animations'
   styleUrls: ['./square.component.scss'],
   animations: [
     trigger('show', [
-      state('in', style({transform: 'scale(1)'})),
+      state('in', style({opacity: 1,transform: 'scale(1)'})),
       transition('void => *', [
-        style({transform: 'scale(0)'}),
-        animate('0.1s ease-in', style({transform: 'scale(1)'}))
+        animate(150, keyframes([
+          style({opacity: 0, transform: 'scale(0)', offset: 0}),
+          style({opacity: 1, transform: 'scale(1.3)',  offset: 0.3}),
+          style({opacity: 1, transform: 'scale(1)',    offset: 1.0})
+        ]))
       ]),
     ])
   ]

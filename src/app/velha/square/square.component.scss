@@ -1,11 +1,12 @@
-$Cor: #29CC62;
-$Cor2: #4285F4;
-$Cor3: #00695c;
+$lightGreen: #29CC62;
+$lightBlue: #4285F4;
 
+//Cor do texto para cada jogador
 i.Player-1{
-    color: $Cor;
+    color: $lightGreen;
 }
+
 i.Player-2
 {
-    color: $Cor2;
+    color: $lightBlue;
 }

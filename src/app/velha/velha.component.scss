@@ -1,7 +1,8 @@
-$Cor: #29CC62;
-$Cor2: #4285F4;
-$Cor3: #00695c;
+//Definição das variáveis de cor
+$Green: #29CC62;
+$lightBlue: #4285F4;
 $Orange: #e65100 ;
+
 #score
 {
     background:#fff;
@@ -11,12 +12,7 @@ $Orange: #e65100 ;
     height: 50px;
 }
 
-
-//Estilza os textos
-i.Player-1
-{
-    color: $Cor;
-}
+//Estilização dos textos
 span.Player
 {
     color: #fff;
@@ -24,37 +20,48 @@ span.Player
     font-weight: 500;
     
 }
-.text-c
+//Texto de cor verde clara
+.text-green-light
 {
-    color: $Cor;
+    color: $Green;
 }
-i.Player-2
+//Definição de cores para os jogadores
+//Verde para Player1
+i.Player-1
 {
-    color: $Cor2;
+    color: $Green;
 }
 div.Player-1
 {
-    background: $Cor;
+    background: $Green;
 }
 span.Player-1
 {
-    background: $Cor;
+    background: $Green;
+}
+//Azul para Player2
+i.Player-2
+{
+    color: $lightBlue;
 }
 div.Player-2
 {
-    background: $Cor2;
+    background: $lightBlue;
 }
 span.Player-2
 {
-    background: $Cor2;
+    background: $lightBlue;
 }
 
-span.placar{
+//Definições gerais do placar
+span.scoreboard{
     font-family:  'Roboto', sans-serif;
 	font-weight: 100;
     font-size: 40px;
     color: #fff;
 }
+
+//Tipos de fonte
 .Bold
 {
 	font-weight: 500;
@@ -63,6 +70,8 @@ span.placar{
 {
 	font-weight: 100;
 }
+
+
 //Cria o formato de chip
 .chip {
     display: inline-block;
@@ -74,13 +83,13 @@ span.placar{
 }
 
 //Muda o cursor
-.reset
+.pointer
 {
     cursor: pointer;
 }
 
 //Centraliza o container de reset
-#reseta {
+#resetContainer {
     margin: 0;  
     position: absolute;
     top: 50%;
@@ -88,20 +97,9 @@ span.placar{
     margin-right: -50%;
     transform: translate(-50%, -50%)
  }
- .title
- {
-	font-weight: 500;
-    font-size: 40px;
-    color: #212121;
- }
 
- //scoreboard
- .scoreboard{
-     background: rgba(0, 0, 0, 0.5) ;
- }
-
- //Imagem de fundo
- div img.bg {
+ //Configurações da imagem de fundo
+ div img.game-background{
     -webkit-filter: brightness(12%); 
     filter: brightness(12%);
     min-height: 100%;
@@ -113,27 +111,26 @@ span.placar{
     left: 0;
   }
 
-  #board
+  #turnScoreboard
   {
     margin: 0;  
     position: absolute;
     width: 20%;
   }
 
+  //Tamanho do texto para a barra de navegação
   ul.nav span
   {
     font-size: 30px;
   }
 
+  //Tamanho da fonte
   .fs15
   {
       font-size: 15px;
   }
-  .fs10
-  {
-      font-size: 10px;
-  }
 
+  //Texto de cor laranja
   .orange-text
   {
       color: $Orange;

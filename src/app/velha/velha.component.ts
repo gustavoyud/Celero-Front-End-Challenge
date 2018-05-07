@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { InfosService } from './infos.service';
+import { InfosService } from 'app/services/infos.service';
 
 @Component({
   selector: 'app-velha',

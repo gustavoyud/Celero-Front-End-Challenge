@@ -5,7 +5,7 @@
         
             <div class="col-md-6 pt-5 d-flex justify-content-center" id="initialConfig" >
                 <div class="card">
-                    <div class="card-header celero lighten-1 white-text">
+                    <div class="card-header light-green-background lighten-1 white-text">
                         <i class="fas fa-users-cog pr-2" aria-hidden="true"></i>  Configuração Inicial
                     </div>
                     <!-- Corpo do card -->
@@ -43,10 +43,10 @@
                 <div class="white-text">
                     <h1 class="display-4 white-text h1-responsive thin" >Seja <span class="Bold"> bem-vindo</span></h1>                               
                     <h6 class="h5-responsive">O jogo está pronto para iniciar:</h6>
-                    <ul class="todolist text-md-left">
+                    <ul class="to-do-list text-md-left">
                         <li>Por favor insira o nome dos jogadores <i class="fas fa-users"></i> </li>
                         <li>Pressione o botão <i class="fas fa-play" aria-hidden="true"></i> </li>
-                        <li>Tenha um bom jogo! <i class="fas fa-gamepad text-c"></i></li>
+                        <li>Tenha um bom jogo! <i class="fas fa-gamepad light-green-text"></i></li>
                     </ul>
                 </div>
             </div>
@@ -73,7 +73,7 @@
         
         <!-- Botão de Inicio -->
         <div class="col-2 col-md-2 col-12 pt-5 text-center " *ngIf="player2 && player1" [@rotation]="'in'" >
-            <i (click)="Initiate()" class="iniciar fas fa-play text-c fa-4x animated rotateIn text-center" aria-hidden="true"></i>
+            <i (click)="Initiate()" class="pointer fas fa-play text-light-green fa-4x animated rotateIn text-center" aria-hidden="true"></i>
         </div>
         
         <!-- Jogador 2 -->

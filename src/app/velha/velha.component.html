@@ -1,6 +1,6 @@
 <!-- Background -->
 <div id="fundo">
-  <img src="../../assets/bg-game.jpg" class="bg" alt="Game background">
+  <img src="assets/bg-game.jpg" class="game-background" alt="Game background">
 </div>
 <!-- !Background -->
 <div class="container-fluid pt-5 pb-5 animated fadeIn">
@@ -8,10 +8,10 @@
   <!-- Controle de turnos -->
   <!-- Turnos para telas grandes -->
   <div class="d-none d-sm-none d-md-none d-lg-block d-xl-block">
-    <div *ngIf="!reset" id="board" class="fixed-bottom col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+    <div *ngIf="!reset" id="turnScoreboard" class="fixed-bottom col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
       <span class="text-center white-text h1-responsive thin text-md-center text-xl-left">
           Vez de <br>
-        <span *ngIf="turn == 1" class="text-c Bold">
+        <span *ngIf="turn == 1" class="text-green-light Bold">
           {{player1}} <i class="fa fa-close" aria-hidden="true"></i>
         </span>
         <span *ngIf="turn == 2" class="blue-text Bold">
@@ -26,7 +26,7 @@
     <div id="score" class="animated fadeInDown navbar navbar-dark fixed-top">
       <div>
         <span class="Bold">Joga </span>
-        <i class="fa animate fadeIn " [ngClass]="{'fa-circle-thin blue-text' : turn == 2, 'fa-close text-c': turn ==1}" arie-hidden="true"></i>
+        <i class="fa animate fadeIn " [ngClass]="{'fa-circle-thin blue-text' : turn == 2, 'fa-close text-green-light': turn ==1}" arie-hidden="true"></i>
       </div>
 
       <!-- Badges -->
@@ -36,7 +36,7 @@
 
       <!-- Placar -->
       <ul class="nav my-2 my-md-0 mr-md-3">  
-        <span class="text-c Bold">{{scoreboardPlayer1}}</span>
+        <span class="text-green-light Bold">{{scoreboardPlayer1}}</span>
         <span class="blue-text Bold">{{scoreboardPlayer2}}</span>
       </ul>
       <!-- !Placar -->
@@ -52,10 +52,10 @@
           <!-- Jogador 1 -->
           <div class="col-md-12 col-xl-12 pt-2 animated wow fadeInDown" data-wow-delay="0.9s">                  
             <div class="row">
-              <span class="placar white-text text-center pl-3"> {{scoreboardPlayer1}}
+              <span class="scoreboard white-text text-center pl-3"> {{scoreboardPlayer1}}
                 <i *ngIf="scoreboardPlayer1 - scoreboardPlayer2 >= 3" class="fas pr-2 fa-fire fs15 orange-text" mdbTooltip="Awesome!" placement="right"></i>
               </span>
-              <dd class="col-12 text-c Bold">{{player1}}</dd>
+              <dd class="col-12 text-green-light Bold">{{player1}}</dd>
               
             </div>  
           </div>
@@ -64,7 +64,7 @@
           <!-- Jogador2 -->
           <div class="col-md-12 col-xl-12 pt-2 animated wow slideInUp" data-wow-delay="0.9s">
             <div class="row">
-                <span class="placar white-text pl-3 text-center">{{scoreboardPlayer2}}
+                <span class="scoreboard white-text pl-3 text-center">{{scoreboardPlayer2}}
                   <i *ngIf="scoreboardPlayer2 - scoreboardPlayer1 >= 3" class="fas pr-2 fa-fire fs15 orange-text" mdbTooltip="Awesome!" placement="right"></i>              
                 </span>
                 <dd class="col-12 blue-text Bold">{{player2}}</dd>
@@ -85,11 +85,11 @@
     <!-- !Tabuleiro -->
 
     <!-- Resete -->
-    <div *ngIf="reset" id="reseta" class="pt-2 pb-2 col-10 col-sm-10 col-lg-7 col-xl-7 col-md-8 ">
+    <div *ngIf="reset" id="resetContainer" class="pt-2 pb-2 col-10 col-sm-10 col-lg-7 col-xl-7 col-md-8 ">
       <div class="row text-center">
         <!-- Resultado -->
         <div class="col-12">
-            <span  class="placar animated wow zoomInDown   text-center" data-wow-delay="1.5s"> 
+            <span  class="scoreboard animated wow zoomInDown   text-center" data-wow-delay="1.5s"> 
             <i *ngIf="status != 'O Jogo deu velha'" class="fas fa-trophy pl-2 yellow-text"></i>
             <i *ngIf="status == 'O Jogo deu velha'" class="fas fa-hashtag"></i>
             {{status}}
@@ -98,18 +98,18 @@
         <!-- !Resultado -->
         <!-- Placar do Jogador 1 -->
         <div class="col-6 align-self-center pt-2 animated wow swing" data-wow-delay="0.9s">
-          <span class="chip placar Player-1 white-text z-depth-1" mdbTooltip="{{player1}}" placement="left">{{scoreboardPlayer1}}</span>
+          <span class="chip scoreboard Player-1 white-text z-depth-1" mdbTooltip="{{player1}}" placement="left">{{scoreboardPlayer1}}</span>
         </div>
         <!-- !Placar do Jogador 1 -->
         <!-- Placar do Jogador 2 -->    
         <div class="col-6  pt-2 animated wow swing" data-wow-delay="0.9s">
-          <span class="chip placar Player-2 white-text z-depth-1-half" mdbTooltip="{{player2}}" placement="right">{{scoreboardPlayer2}}</span>
+          <span class="chip scoreboard Player-2 white-text z-depth-1-half" mdbTooltip="{{player2}}" placement="right">{{scoreboardPlayer2}}</span>
         </div>
         <!-- !Placar do Jogador 2 -->
                 
         <!-- Botão de reinicio -->
         <div class="col-12 text-center">
-          <i class="fa reset fa-repeat fa-4x placar white-text animated pl-2" (click)="ChangesReset()" (mouseover)="animate = true" (mouseout)="animate = false" [ngClass]="{'rotateIn': animate}" aria-hidden="true"></i>    
+          <i class="fa pointer fa-repeat fa-4x scoreboard white-text animated pl-2" (click)="ChangesReset()" (mouseover)="animate = true" (mouseout)="animate = false" [ngClass]="{'rotateIn': animate}" aria-hidden="true"></i>    
         </div>
         <!-- !Botão de reinicio -->
       </div>

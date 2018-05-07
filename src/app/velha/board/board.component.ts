@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter,Input } from '@angular/core';
-import {InfosService} from '../infos.service';
+import {InfosService} from 'app/services/infos.service';
 import {trigger,state,style,animate,transition,keyframes} from '@angular/animations';
 
 @Component({

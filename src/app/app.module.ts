@@ -9,7 +9,7 @@ import { JogadoresComponent } from './jogadores/jogadores.component';
 import { SquareComponent } from './velha/square/square.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { BoardComponent } from './velha/board/board.component';
-import {InfosService} from './velha/infos.service';
+import {InfosService} from './services/infos.service';
 import { CardsComponent } from './jogadores/cards/cards.component';
 
 @NgModule({

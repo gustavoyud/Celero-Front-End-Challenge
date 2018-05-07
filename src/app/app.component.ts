@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  //Recebe o jogador que irá iniciar
+  //Recebe o jogador que irá iniciar o Jogo
   public initialPlayer : number;
   
   //Recebe array com o nome dos jogadores

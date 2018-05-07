@@ -5,6 +5,7 @@ import {trigger,state,style,animate,transition,keyframes} from '@angular/animati
   selector: 'app-jogadores',
   templateUrl: './jogadores.component.html',
   styleUrls: ['./jogadores.component.scss'],
+  //Animação dos cards e do Texto Inicial
   animations: [
     trigger('cardAnimation', [
       state('in', style({transform: 'translateX(0)'})),
@@ -23,6 +24,7 @@ import {trigger,state,style,animate,transition,keyframes} from '@angular/animati
         ]))
       ])
     ]),
+    //Animação Do botão de inicio
     trigger('rotation',[
       state('in',style({ transform: 'none',opacity: 1, 'transform-origin': 'center'})),
       transition('void => *',[
@@ -45,7 +47,7 @@ export class JogadoresComponent {
   private initiate: boolean = false;
   //Recebe o nome dos Jogadores e aloca em um array
   private playerNames: string[];
-  //Recebe o nome dos pelo input da página
+  //Recebe o nome dos jogadores pelo input da página
   public player1: string = '';
   public player2: string = '';
   //Recebe o Jogador que irá começar
@@ -58,10 +60,13 @@ export class JogadoresComponent {
   //Metodo responsável por iniciar o Jogo
   public Initiate()
   {
+    //O método só efetua alguma modificação caso o jogador 1 e 2 
+    //tenham sido informados
     if(this.player1 && this.player2)
     {
       //Define o status do Jogo como iniciado
       this.initiate = true;
+      //Chama o Método emissor
       this.Emit();
     }
   }
@@ -73,11 +78,12 @@ export class JogadoresComponent {
     {
       let min = Math.ceil(1);
       let max = Math.floor(2);
+      //Aloca o resultado na variavel de controle
       this.initialPlayer = Math.floor(Math.random() * (max - min + 1)) + min;
     }
   }
 
-  //Passa os resultados para o componente pai
+  //Emite os resultados para o componente pai
   private Emit()
   {
     this.playerNames = [this.player1, this.player2];

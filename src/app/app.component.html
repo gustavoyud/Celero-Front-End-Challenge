@@ -1,9 +1,9 @@
-<!--The content below is only a placeholder and can be replaced.-->
+<!-- Chama a tela de configuração inicial -->
 <div *ngIf="!validated">
     <app-jogadores (emitter)="EventReceiver($event)" (emitter)="PlayReceiver($event)" (emitterNames)="NameReceiver($event)"></app-jogadores>
 </div>
 
+<!-- Se foi validado mostra o tabuleiro -->
 <div *ngIf="validated">
     <app-velha [players]="players" [initialPlayer]="initialPlayer"></app-velha>
 </div>
-

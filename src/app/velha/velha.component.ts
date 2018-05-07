@@ -21,19 +21,19 @@ export class VelhaComponent implements OnInit {
   //variável responsável pelas animações
   public animate: boolean = false;
 
-  //variável responsável por reiniciar o Jogo
+  //Caso seja verdadeira chama a tela de reinicio
   public reset: boolean = false;
 
-  //Recebe array de outro component
+  //Recebe array de Nomes de outro component
   @Input() public players: string[];
 
   //Recebe o Jogador que inicia 
   @Input() public initialPlayer: Number; 
 
-  //Controla de qual jogador é a vez
+  //Controla de qual jogador é o turno
   public turn: Number = 1;
 
-  //Recebe as variaveis
+  //Recebe as variáveis através do Serviço
   public ReceiveData()
   {
     this.info.currentReset.subscribe(reset => this.reset = reset);
@@ -42,7 +42,8 @@ export class VelhaComponent implements OnInit {
     this.info.currentScoreboardPlayer2.subscribe(scoreboardPlayer2 => this.scoreboardPlayer2 = scoreboardPlayer2);
   }
 
-  //Recebe as mudanças ocorridas em outro componente
+  //Recebe as mudanças ocorridas em outro componente e chama o método
+  //para atualizar as variáveis
   public EventReceiver(changes)
   {
     this.ReceiveData();
@@ -55,6 +56,7 @@ export class VelhaComponent implements OnInit {
     this.info.ChangeReset(this.reset);
   }
 
+  //Construtor
   constructor(private info: InfosService){}
 
   ngOnInit() {
@@ -73,6 +75,8 @@ export class VelhaComponent implements OnInit {
     //Passa atraves do serviço o nome dos jogadores para o componente 'board'
     this.info.currentTurn.subscribe(turn =>this.turn = turn);
     this.info.ChangePlayers(this.player1,this.player2);
+    
+    //Chama o método que irá atualizar as variaveis
     this.ReceiveData();
   }
 

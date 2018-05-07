@@ -59,7 +59,7 @@ ul.todolist li::before
     color: #000000;
 }
  
-.css-shapes-preview{ 
+.halfSquare{ 
     height: 320px;
     -webkit-clip-path: polygon(0 0, 100% 0%, 100% 79%, 0 53%);
     clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 59%);
@@ -69,32 +69,27 @@ ul.todolist li::before
 }
 
 @media only screen and  (max-width: 768px) {
-    .css-shapes-preview{ 
+    .halfSquare{ 
         height: 600px;
         -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
-        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
-    
+        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);    
     }
     #initialConfig
     {
-        width: 400px;
+        width: 430px;
     }
     #initialText
     {
-        justify-content: center;
-        align-items: center;
+        padding-top: 0px;
     }
-    #initialText hr
-    {
-        width: 200px;
-    }
+
     #players{
     flex-direction: column;
     justify-content: center;
     }
 }
 @media only screen and (min-width:768px) and (max-width: 990px) {
-    .css-shapes-preview{ 
+    .halfSquare{ 
         height: 400px;
         -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
         clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);

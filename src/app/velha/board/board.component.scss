@@ -33,40 +33,23 @@ $lightBlue: #4285F4;
     }
 }
 @media only screen and (min-width: 768px) and (max-width: 990px) {
-    #mainBoard{
-        padding-top: 50px;
-    }
+    #mainBoard{padding-top: 50px;}
 }
 
 @media only screen and (min-width: 576px) and (max-width: 768px) {
-    .board-border{
-        height: 180px; 
-    }
-    ul.nav span
-    {
-      font-size: 20px;
-    }
-    #mainBoard{
-        padding-top: 50px;
-    }
+    .board-border{height: 180px; }
+        ul.nav span{font-size: 20px;}
+            #mainBoard{padding-top: 50px;}
 }
 
 @media only screen and (min-width: 400px) and (max-width: 576px) {
-    .board-border{
-        height: 150px; 
-    }
-    #mainBoard{
-        padding-top: 100px;
-    }
+    .board-border{height: 150px;}
+        #mainBoard{padding-top: 100px;}
 }
 
 @media only screen and (min-width: 300px) and (max-width: 400px) {
-    .board-border{
-        height: 120px; 
-    }
-    #mainBoard{
-        padding-top: 100px;
-    }
+    .board-border{height: 120px; }
+        #mainBoard{padding-top: 100px;}
 }
 //Alinha o X ou o O no meio da coluna
 .board-border span 
@@ -76,7 +59,4 @@ $lightBlue: #4285F4;
   text-align: center; 
 }
 
-ul.nav span
-{
-    font-size: 30px;
-}
+ul.nav span{font-size: 30px;}

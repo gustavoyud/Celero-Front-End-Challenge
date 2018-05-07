@@ -12,47 +12,6 @@ $Orange: #e65100 ;
     height: 50px;
 }
 
-//Estilização dos textos
-span.Player
-{
-    color: #fff;
-    font-size: 20px;
-    font-weight: 500;
-    
-}
-//Texto de cor verde clara
-.text-green-light
-{
-    color: $Green;
-}
-//Definição de cores para os jogadores
-//Verde para Player1
-i.Player-1
-{
-    color: $Green;
-}
-div.Player-1
-{
-    background: $Green;
-}
-span.Player-1
-{
-    background: $Green;
-}
-//Azul para Player2
-i.Player-2
-{
-    color: $lightBlue;
-}
-div.Player-2
-{
-    background: $lightBlue;
-}
-span.Player-2
-{
-    background: $lightBlue;
-}
-
 //Definições gerais do placar
 span.scoreboard{
     font-family:  'Roboto', sans-serif;
@@ -60,17 +19,6 @@ span.scoreboard{
     font-size: 40px;
     color: #fff;
 }
-
-//Tipos de fonte
-.Bold
-{
-	font-weight: 500;
-}
-.thin
-{
-	font-weight: 100;
-}
-
 
 //Cria o formato de chip
 .chip {
@@ -83,10 +31,7 @@ span.scoreboard{
 }
 
 //Muda o cursor
-.pointer
-{
-    cursor: pointer;
-}
+.pointer{cursor: pointer;}
 
 //Centraliza o container de reset
 #resetContainer {
@@ -118,20 +63,40 @@ span.scoreboard{
     width: 20%;
   }
 
-  //Tamanho do texto para a barra de navegação
-  ul.nav span
-  {
-    font-size: 30px;
-  }
+//                      #                       #
+//                      # Definições de texto   #
+//                      #                       #
+    span.Player
+    {
+        color: #fff;
+        font-size: 20px;
+        font-weight: 500;
+    }
+    //Texto de cor verde clara
+    .text-green-light{color: $Green;}
 
-  //Tamanho da fonte
-  .fs15
-  {
-      font-size: 15px;
-  }
+    //Verde para Player1
+    i.Player-1{color: $Green;}
+    div.Player-1{background: $Green;}
+    span.Player-1{background: $Green;}
 
-  //Texto de cor laranja
-  .orange-text
-  {
-      color: $Orange;
-  }
+    //Azul para Player2
+    i.Player-2{color: $lightBlue;}
+    div.Player-2{background: $lightBlue;}
+    span.Player-2{background: $lightBlue;}
+
+    //Tamanho do texto para a barra de navegação
+    ul.nav span{font-size: 30px;}
+
+    //Tamanho da fonte
+    .fs15{font-size: 15px;}
+
+    //Texto de cor laranja
+    .orange-text{color: $Orange;}
+
+    //Tipos de fonte
+    .Bold{font-weight: 500;}
+    .thin{font-weight: 100;}
+
+
+

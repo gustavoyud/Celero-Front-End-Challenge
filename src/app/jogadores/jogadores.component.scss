@@ -3,61 +3,36 @@ $LightGreen: #29CC62;
 $Blue: #1e88e5;
 
 //fundo verde claro
-.light-green-background{
-    background: $LightGreen;
-}
+.light-green-background{background: $LightGreen;}
 //texto verde claro
-.text-light-green
-{
-    color: $LightGreen;
-}
+.text-light-green{color: $LightGreen;}
 
 //Muda o cursor
-.pointer{
-    cursor: pointer;
-}
+.pointer{cursor: pointer;}
 
 //Texto no formato 'Bold'
-.Bold
-{
-	font-weight: 500;
-}
+.Bold{font-weight: 500;}
 //Texto no formato 'thin'
-.thin
-{
-    font-weight: 100;
-}
+.thin{font-weight: 100;}
 
 //Configurações da lista 
-ul.to-do-list
-{
-    list-style-type: none;
-}
-ul.to-do-list li::before
-{
-    content: '\f054';
-    font-family: FontAwesome;
-    font-style: normal;
-    font-weight: normal;
-    text-decoration: inherit;
-    padding-right: 10px;
-}
+ul.to-do-list{list-style-type: none;}
+    ul.to-do-list li::before
+    {
+        content: '\f054';
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: inherit;
+        padding-right: 10px;
+    }
 
 //Cor do card
-.card
-{
-    background-color: rgba(255,255, 255, 1);
-}
+.card{background-color: rgba(255,255, 255, 1);}
 
 //Configurações do form
-.md-form
-{
-    color: $Blue;
-}
-.md-form label 
-{
-    color: #9e9e9e;
-}
+.md-form{color: $Blue;}
+.md-form label {color: #9e9e9e;}
 .md-form input
 {
     border-color: #bdbdbd;
@@ -75,12 +50,12 @@ ul.to-do-list li::before
     display: flex;
 }
 
-#players
-{
-    display: flex;
-    position: absolute;
-    z-index: 1;
-}
+    #players
+    {
+        display: flex;
+        position: absolute;
+        z-index: 1;
+    }
 
 
 //Responsividade
@@ -91,10 +66,7 @@ ul.to-do-list li::before
         -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
         clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
     }
-    #initialConfig
-    {
-        width: 300px;
-    }
+        #initialConfig{width: 300px;}
 }
 
 @media only screen and (min-width:470px) and (max-width: 768px) {
@@ -104,19 +76,14 @@ ul.to-do-list li::before
         -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
         clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);    
     }
-    #initialConfig
-    {
-        width: 430px;
-    }
-    #initialText
-    {
-        padding-top: 0px;
-    }
 
-    #players{
-    flex-direction: column;
-    justify-content: center;
-    }
+        #players{
+            flex-direction: column;
+            justify-content: center;
+        }
+
+            #initialConfig{width: 430px;}
+            #initialText{padding-top: 0px;}
 }
 
 @media only screen and (max-width: 470px) {
@@ -126,18 +93,13 @@ ul.to-do-list li::before
         -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
         clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);    
     }
-    #initialConfig
-    {
-        width: 300px;
-    }
-    #initialText
-    {
-        width: 300px;
-    }
 
-    #players{
-    flex-direction: column;
-    justify-content: center;
-    }
+        #players{
+            flex-direction: column;
+            justify-content: center;
+        }
+
+            #initialConfig{width: 300px;}
+            #initialText{width: 300px;}
 }
 

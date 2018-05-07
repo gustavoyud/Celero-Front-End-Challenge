@@ -1,0 +1,62 @@
+//Variaveis com as cores
+$lightGreen: #29CC62;
+$lightBlue: #4285F4;
+
+//Configuração geral do tabuleiro
+#mainBoard
+{
+    margin: 0;  
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+//Estilização do tabuleiro
+.board-border
+{
+    height: 180px; 
+    border: 7px solid ;
+    display: table; 
+    border-color: #fff;
+}
+
+//Breakpoints e configurações do tabuleiro
+@media only screen and (min-width: 1600px) {
+    .board-border{
+        height: 210px; 
+        border: 7px solid ;
+        display: table; 
+        border-color: #fff;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 990px) {
+    #mainBoard{padding-top: 50px;}
+}
+
+@media only screen and (min-width: 576px) and (max-width: 768px) {
+    .board-border{height: 180px; }
+        ul.nav span{font-size: 20px;}
+            #mainBoard{padding-top: 50px;}
+}
+
+@media only screen and (min-width: 400px) and (max-width: 576px) {
+    .board-border{height: 150px;}
+        #mainBoard{padding-top: 100px;}
+}
+
+@media only screen and (min-width: 300px) and (max-width: 400px) {
+    .board-border{height: 120px; }
+        #mainBoard{padding-top: 100px;}
+}
+//Alinha o X ou o O no meio da coluna
+.board-border span 
+{
+  display: table-cell; 
+  vertical-align: middle; 
+  text-align: center; 
+}
+
+ul.nav span{font-size: 30px;}

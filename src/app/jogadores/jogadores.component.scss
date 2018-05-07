@@ -1,0 +1,105 @@
+//Variaveis com as cores
+$LightGreen: #29CC62;
+$Blue: #1e88e5;
+
+//fundo verde claro
+.light-green-background{background: $LightGreen;}
+//texto verde claro
+.text-light-green{color: $LightGreen;}
+
+//Muda o cursor
+.pointer{cursor: pointer;}
+
+//Texto no formato 'Bold'
+.Bold{font-weight: 500;}
+//Texto no formato 'thin'
+.thin{font-weight: 100;}
+
+//Configurações da lista 
+ul.to-do-list{list-style-type: none;}
+    ul.to-do-list li::before
+    {
+        content: '\f054';
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: inherit;
+        padding-right: 10px;
+    }
+
+//Cor do card
+.card{background-color: rgba(255,255, 255, 1);}
+
+//Configurações do form
+.md-form{color: $Blue;}
+.md-form label {color: #9e9e9e;}
+.md-form input
+{
+    border-color: #bdbdbd;
+    color: #000000;
+}
+
+//Configura o meio quadrado-inicial
+.halfSquare
+{ 
+    height: 320px;
+    -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 59%);
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 59%);
+    background: webkit-linear-gradient(to right top, #007e8c, #00799c, #0073ad, #0069b9, #145bbd);
+    background: linear-gradient(to right top, #007e8c, #00799c, #0073ad, #0069b9, #145bbd);
+    display: flex;
+}
+
+    #players
+    {
+        display: flex;
+        position: absolute;
+        z-index: 1;
+    }
+
+
+//Responsividade
+@media only screen and (min-width:768px) and (max-width: 990px) {
+    .halfSquare
+    { 
+        height: 400px;
+        -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+    }
+        #initialConfig{width: 300px;}
+}
+
+@media only screen and (min-width:470px) and (max-width: 768px) {
+    .halfSquare
+    { 
+        height: 500px;
+        -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);    
+    }
+
+        #players{
+            flex-direction: column;
+            justify-content: center;
+        }
+
+            #initialConfig{width: 430px;}
+            #initialText{padding-top: 0px;}
+}
+
+@media only screen and (max-width: 470px) {
+    .halfSquare
+    { 
+        height: 600px;
+        -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);    
+    }
+
+        #players{
+            flex-direction: column;
+            justify-content: center;
+        }
+
+            #initialConfig{width: 300px;}
+            #initialText{width: 300px;}
+}
+

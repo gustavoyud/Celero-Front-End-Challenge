@@ -1,0 +1,13 @@
+
+<div class="pt-5">
+  <div class="card">
+    <div class="view hm-white-slight card-height waves-light" [ngClass]="{'player1-color': player == 1 && initialPlayer == 1 || player == 2 && initialPlayer == 2 , 'primary-color': player == 1 && initialPlayer == 2 || player == 2 && initialPlayer == 1 }" mdbWavesEffect></div>
+    <div class="card-body">
+      <h4 class="card-title">Jogador: 
+        <span  [ngClass]="{'player1-color-text': player == 1 && initialPlayer == 1 || player == 2 && initialPlayer == 2 , 'blue-text': player == 1 && initialPlayer == 2 || player == 2 && initialPlayer == 1}" >{{playerName}} </span>
+      </h4>
+      <p>O jogador será representado por <i class="fa" [ngClass]="{'player1-color-text fa-close': player == 1 && initialPlayer == 1 || player == 2 && initialPlayer == 2,  'fa-circle-thin blue-text': player == 1 && initialPlayer == 2 || player == 2 && initialPlayer == 1}" aria-hidden="true"></i></p>
+      <small class="text-muted"><i class="fa fa-info-circle pr-1" aria-hidden="true"></i> O nome poderá ser alterado até o jogo ser iniciado   </small>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,73 @@
+<div  id="mainBoard" class="board col-12 col-sm-12 col-lg-7 col-xl-6 col-md-8 col-sm-12"> 
+  <!-- Primeira Linha -->
+  <div class="row" [@boarder]="'in'">        
+    
+    <!-- Primeira coluna -->
+    <div class="col-4 border-left-0 border-top-0 board-border" (click)="SetTrue(0,0)">
+      <span><app-square [player]="player" [mainMatrix]="mainMatrix" [line]="0" [collumn]="0"></app-square></span>
+    </div>
+    <!-- !Primeira coluna -->
+  
+    <!-- Segunda Coluna -->
+    <div class="col-4 border-left-0 border-top-0 board-border" (click)="SetTrue(0,1)">
+      <span><app-square [player]="player" [mainMatrix]="mainMatrix" [line]="0" [collumn]="1"></app-square></span>
+    </div>
+    <!-- !Segunda Coluna -->
+  
+    <!-- Terceira Coluna -->
+    <div class="col-4  border-left-0 border-right-0 border-top-0 board-border velhaLeft" (click)="SetTrue(0,2)">
+      <span><app-square [player]="player" [mainMatrix]="mainMatrix" [line]="0" [collumn]="2"></app-square></span>
+    </div>
+    <!-- !Terceira Coluna -->
+
+  </div> 
+  <!-- !Primeira Linha -->
+  
+  <!-- Segunda Linha -->
+  <div class="row " [@boarder]="'in'">
+  
+    <!-- Primeira Coluna  -->
+    <div class="col-4 border-left-0 border-top-0 board-border" (click)="SetTrue(1,0)">
+      <span><app-square [player]="player" [mainMatrix]="mainMatrix" [line]="1" [collumn]="0"></app-square></span>
+    </div>
+    <!-- !Primeira Coluna -->
+    
+    <!-- Segunda Coluna -->
+    <div class="col-4 border-left-0 border-top-0 board-border" (click)="SetTrue(1,1)">
+        <span><app-square [player]="player" [mainMatrix]="mainMatrix" [line]="1" [collumn]="1"></app-square></span>        
+    </div>
+    <!-- !Segunda Coluna -->
+    
+    <!-- Terceira Coluna -->
+    <div class="col-4  border-left-0 border-right-0 border-top-0 board-border velhaLeft" (click)="SetTrue(1,2)">
+        <span><app-square [player]="player" [mainMatrix]="mainMatrix" [line]="1" [collumn]="2"></app-square></span>
+    </div>
+    <!-- !Terceira Coluna -->
+  </div>
+  <!-- !Segunda linha -->
+  
+  <!-- Terceira Linha -->
+  <div class="row" [@boarder]="'in'">
+    <!-- Primeira Linha -->    
+    <div class="col-4 border-left-0 border-top-0 border-bottom-0 velhaRight board-border" (click)="SetTrue(2,0)">
+      <span><app-square [player]="player" [mainMatrix]="mainMatrix" [line]="2" [collumn]="0"></app-square></span>
+     </div>
+    <!-- !Primeira Linha -->  
+
+    <!-- Segunda Linha -->            
+    <div class="col-4  border-left-0 border-top-0 border-bottom-0 board-border" (click)="SetTrue(2,1)">
+      <span><app-square [player]="player" [mainMatrix]="mainMatrix" [line]="2" [collumn]="1"></app-square></span>
+    </div>
+    <!-- !Segunda Linha -->    
+
+    <!-- Terceira Linha -->
+    <div class="col-4 border-left-0 border-right-0 border-top-0 border-bottom-0 velhaLeft board-border animated fadeInLeft" (click)="SetTrue(2,2)">
+      <span><app-square [player]="player" [mainMatrix]="mainMatrix" [line]="2" [collumn]="2"></app-square></span>
+    </div>
+    <!-- !Terceira Linha -->    
+    
+  </div>
+  <!-- !Terceira linha -->
+</div>
+   
+      

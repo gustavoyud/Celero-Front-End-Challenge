@@ -61,16 +61,27 @@ ul.todolist li::before
  
 .halfSquare{ 
     height: 320px;
-    -webkit-clip-path: polygon(0 0, 100% 0%, 100% 79%, 0 53%);
+    -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 59%);
     clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 59%);
     background: webkit-linear-gradient(to right top, #007e8c, #00799c, #0073ad, #0069b9, #145bbd);
     background: linear-gradient(to right top, #007e8c, #00799c, #0073ad, #0069b9, #145bbd);
     display: flex;
 }
-
-@media only screen and  (max-width: 768px) {
+@media only screen and (min-width:768px) and (max-width: 990px) {
     .halfSquare{ 
-        height: 600px;
+        height: 400px;
+        -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+    }
+    #initialConfig
+    {
+        width: 300px;
+    }
+}
+
+@media only screen and (min-width:470px) and (max-width: 768px) {
+    .halfSquare{ 
+        height: 500px;
         -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
         clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);    
     }
@@ -88,17 +99,28 @@ ul.todolist li::before
     justify-content: center;
     }
 }
-@media only screen and (min-width:768px) and (max-width: 990px) {
+
+@media only screen and (max-width: 470px) {
     .halfSquare{ 
-        height: 400px;
+        height: 600px;
         -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
-        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);    
     }
     #initialConfig
     {
         width: 300px;
     }
+    #initialText
+    {
+        width: 300px;
+    }
+
+    #players{
+    flex-direction: column;
+    justify-content: center;
+    }
 }
+
 
 #players{
     display: flex;

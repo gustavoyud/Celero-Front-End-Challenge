@@ -1,5 +1,6 @@
 $Red: #e53935;
 $Green: #29CC62;
+$Blue: #1e88e5;
 
 .card-height{
     height: 20px;
@@ -38,4 +39,74 @@ ul.todolist li::before
     font-weight: normal;
     text-decoration: inherit;
     padding-right: 10px;
+}
+
+ 
+.card{
+    background-color: rgba(255,255, 255, 1);
+}
+
+//Configurações do form
+.md-form
+{
+    color: $Blue;
+}
+.md-form label {
+    color: #9e9e9e;
+}
+.md-form input{
+    border-color: #bdbdbd;
+    color: #000000;
+}
+ 
+.css-shapes-preview{ 
+    height: 320px;
+    -webkit-clip-path: polygon(0 0, 100% 0%, 100% 79%, 0 53%);
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 59%);
+    background: webkit-linear-gradient(to right top, #007e8c, #00799c, #0073ad, #0069b9, #145bbd);
+    background: linear-gradient(to right top, #007e8c, #00799c, #0073ad, #0069b9, #145bbd);
+    display: flex;
+}
+
+@media only screen and  (max-width: 768px) {
+    .css-shapes-preview{ 
+        height: 600px;
+        -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+    
+    }
+    #initialConfig
+    {
+        width: 400px;
+    }
+    #initialText
+    {
+        justify-content: center;
+        align-items: center;
+    }
+    #initialText hr
+    {
+        width: 200px;
+    }
+    #players{
+    flex-direction: column;
+    justify-content: center;
+    }
+}
+@media only screen and (min-width:768px) and (max-width: 990px) {
+    .css-shapes-preview{ 
+        height: 400px;
+        -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%);
+    }
+    #initialConfig
+    {
+        width: 300px;
+    }
+}
+
+#players{
+    display: flex;
+    position: absolute;
+    z-index: 1;
 }

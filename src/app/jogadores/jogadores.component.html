@@ -26,7 +26,7 @@
                             <div class="col-12">
                                 <div class="md-form">
                                     <i class="fa fa-gamepad prefix"></i>
-                                    <input mdbInputDirective type="text" name="text" [(ngModel)]="player2" data-success=" " data-error=" " id="Player2" class="form-control">
+                                    <input mdbInputDirective type="text" name="text" [disabled]="!player1" [(ngModel)]="player2" data-success=" " data-error=" " id="Player2" class="form-control">
                                     <label for="Player2" class="">Nome do Jogador*</label>
                                 </div>
                             </div>
